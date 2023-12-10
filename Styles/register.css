@@ -18,6 +18,12 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 5vw;
+    transition: all 0.2s ease-out;
+}
+
+.register:hover
+{
+    border-radius: 10% 0 0 10%;
 }
 
 .rHeading
