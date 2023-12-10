@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login
+{
+    display: none;
+    width: 50vw;
+    height: 100vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-evenly;*/
+    flex-direction: column; 
+}
+
+.lHeading
+{
+    width: 100%;
+    height: 10%;
+    font-size: 2.5vw;
+    text-align: center;
+    font-weight: 600;
+    margin: 3vw;
+}
+
+.loginMethods
+{
+    font-size: 1.5vw;
+}
+
+.methodLink
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    background-color: #323232;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 1vw;
+    height: 2.5vw;
+    padding: 1vw;
+    transition: all 0.2s ease-out;
+}
+
+.methodLink:hover
+{
+    background-color: #a09f9f;
+}
+
+.methodIcon
+{
+    margin: 0 0.5vw 0 0 ;
+}
