@@ -33,42 +33,46 @@ function Login() {
   return (
     <div className='login'>
         
-        <h1 className='lHeading'>
-            Sign In
-        </h1>
+        <div className='innerLogin login'>
 
-        <div className='loginMethods'>
+            <h1 className='lHeading'>
+                Sign In
+            </h1>
 
-            <Link href='/' className='methodLink'>
-                <div className='methodIcon'><FcGoogle /></div> <h2 className='methodName'>Google</h2>
-            </Link>
+            <div className='loginMethods'>
+
+                <Link href='/' className='methodLink'>
+                    <div className='methodIcon'><FcGoogle /></div> <h2 className='methodName'>Google</h2>
+                </Link>
+            </div>
+
+            <form className='loginForm'>
+
+                <div className='inputRow'>
+                    <p className='fieldName'>Username:</p> <input className='inputBox' type='text' value={username} placeholder='Enter username here' required onChange={(name)=>
+                    {
+                        setUsername(name.target.value);
+                    }}/>
+                </div>
+
+                <div className='inputRow'>
+                    <p className='fieldName'>Password:</p> <input className='inputBox' type='password' value={password} placeholder='Password goes here' onChange={(pass)=>
+                    {
+                        setPassword(pass.target.value);
+                    }}/>
+                    
+                </div>
+                <Link href='/'>Forgot Password? </Link>
+
+                <div className='inputRow'>
+                    <button className='loginButton'>
+                        Sign In
+                    </button>
+                </div>
+
+            </form>
+
         </div>
-
-        <form className='loginForm'>
-
-            <div className='inputRow'>
-                <p className='fieldName'>Username:</p> <input className='inputBox' type='text' value={username} placeholder='Enter username here' required onChange={(name)=>
-                {
-                    setUsername(name.target.value);
-                }}/>
-            </div>
-
-            <div className='inputRow'>
-                <p className='fieldName'>Password:</p> <input className='inputBox' type='password' value={password} placeholder='Password goes here' onChange={(pass)=>
-                {
-                    setPassword(pass.target.value);
-                }}/>
-                
-            </div>
-            <Link href='/'>Forgot Password? </Link>
-
-            <div className='inputRow'>
-                <button className='loginButton'>
-                    Sign In
-                </button>
-            </div>
-
-        </form>
 
     </div>
   )
