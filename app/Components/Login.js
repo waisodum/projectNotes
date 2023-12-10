@@ -15,21 +15,24 @@ function Login() {
 
         gsap.from('.login' , {
             opacity: 0,
-            duration: 1
+            duration: 2
         }),
 
         gsap.to('.login', {
             opacity: 1,
             duration: 2,
+            delay: 0.34,
             ease: "power1.out",
             onComplete: function () {
+              setTimeout(() => {
                 gsap.set('.login', {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                 });
-              },
-        })
+              }, 1);
+            },
+          });
 
     }, []);
 

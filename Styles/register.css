@@ -39,10 +39,10 @@
 
 .rButton
 {
-    width: 170px;
-    height: 70px;
+    width: 100px;
+    height: 40px;
     background-color: #6951b7;
-    font-size: 2vw;
+    font-size: 0.9vw;
     border-radius: 2.5vw;
     transition: all 0.2s ease-out;
 }

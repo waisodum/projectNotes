@@ -32,10 +32,18 @@ function Register() {
         t1.to('.rHeading', {
             duration: 0.5,
             delay: 0.5,
-            fontSize: "2.5vw",
+            fontSize: "3vw",
             ease: "power4.out",
             y: 0,
 
+        })
+
+        t1.to('.rButton', {
+            delay: -0.6,
+            duration: 0.2,
+            width: '165px',
+            height: '65px',
+            fontSize: '2vw',
         })
           
     
