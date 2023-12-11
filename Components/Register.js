@@ -14,7 +14,6 @@ function Register() {
         
         t1.from(".register", {
             x: '0',
-            position: null,
         })
 
         t1.to('.register', {
