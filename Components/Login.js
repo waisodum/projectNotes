@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import '../../Styles/login.css'
+import '../Styles/login.css'
 import gsap from 'gsap'
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
@@ -62,7 +62,7 @@ function Login() {
                     }}/>
                     
                 </div>
-                <Link href='/'>Forgot Password? </Link>
+                <Link className='forgotPass' href='/'>Forgot Password? </Link>
 
                 <div className='inputRow'>
                     <button className='loginButton'>

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
-import '../../Styles/register.css'
+import '../Styles/register.css'
 import { CustomEase } from 'gsap/CustomEase';
 import Link from 'next/link';
 
