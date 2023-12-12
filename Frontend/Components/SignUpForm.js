@@ -1,15 +1,16 @@
 import React from 'react'
 
 
+
 function SignUpForm() {
   return (
     <div className='signUpForm'>
 
-        <form>
+      <form>
 
-          
-          
-        </form>
+        <h2>First name: </h2> <input type='text'  required/>
+
+      </form>
 
       </div>
   )
