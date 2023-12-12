@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signUpBody
+{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-out;
+}
+
