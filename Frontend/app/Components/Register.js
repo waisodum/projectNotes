@@ -19,7 +19,8 @@ const [User, setUser] = useState({
 const [first, setfirst] = useState(true)
 async function HandleSubmit(e) { 
     try {
-        await axios.post('http://localhost:8000/',User);
+     let data= await axios.post('http://localhost:8000/',User);
+     console.log(data.data);
     } catch (error) {
         console.log(error)
        setfirst(false)
