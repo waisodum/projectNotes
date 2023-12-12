@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/registerPage.css'
+import '../../Styles/signUpPage.css'
 import SignUpForm from '@/Components/SignUpForm'
 
 function Register() {

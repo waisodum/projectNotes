@@ -9,8 +9,8 @@
   overflow: hidden;
   font-family: 'Afacad';
   /* background: linear-gradient(to left, #5337AC, #6951b7); */
-  /* background: linear-gradient(to left, #5337AC, #826cc7); */
-  background: radial-gradient(circle, #826cc7, #ccc8f9);
+  background: linear-gradient(to right, #5337AC, #826cc7);
+  /* background: radial-gradient(circle, #826cc7, #ccc8f9); */
   /* background-color: #dddbf1; */
 }
 
