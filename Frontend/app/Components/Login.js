@@ -5,13 +5,15 @@ import '../../Styles/login.css'
 import gsap from 'gsap'
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
+import axios from 'axios';
 
 function Login() {
-
+  
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-
+function handleSubmit() {
+   // axios.get('http://localhost:80/',fromData,)
+}
     useEffect(()=>
     {
 

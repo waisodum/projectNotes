@@ -57,3 +57,19 @@
 {
     background-color: #8575bb;
 }
+.form{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+margin-top: 15%;
+border-radius: 0.3vw;
+font-size: 1.4vw;
+    
+}
+
+.error{
+    display: block;
+    color: black;
+font-size: 125%;
+}
