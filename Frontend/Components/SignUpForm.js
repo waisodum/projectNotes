@@ -29,7 +29,7 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>First name: </h4> <input className='fieldValue' type='text' placeholder='Name' onChange={(ip)=>
+            <h4 className='fieldName'>First name: </h4> <input className='fieldValue' type='text' name='firstname' placeholder='Name' onChange={(ip)=>
             {
               setFirstName(ip.target.value);
             }} required/>
@@ -38,7 +38,7 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Last name: </h4> <input className='fieldValue' type='text' placeholder='Last Name' onChange={(ip)=>
+            <h4 className='fieldName'>Last name: </h4> <input className='fieldValue' type='text' name='lastname' placeholder='Last Name' onChange={(ip)=>
             {
               setLastName(ip.target.value);
             }} required/>
@@ -84,7 +84,7 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Username: </h4> <input className='fieldValue' type='text' placeholder='Set a new username' onChange={(ip)=>
+            <h4 className='fieldName'>Username: </h4> <input className='fieldValue' type='text' name='username' placeholder='Set a new username' onChange={(ip)=>
             {
               setUsername(ip.target.value);
             }} required/>
@@ -93,7 +93,7 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Password: </h4> <input className='fieldValue w-[18vw]' type='password' placeholder='Needs to be strong' onChange={(ip)=>
+            <h4 className='fieldName'>Password: </h4> <input className='fieldValue w-[18vw]' type='password' name='password' placeholder='Needs to be strong' onChange={(ip)=>
             {
               setPassword(ip.target.value);
             }} required/>
