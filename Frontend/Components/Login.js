@@ -52,11 +52,11 @@ function Login() {
                     <p className='fieldName'>Username:</p> <input className='inputBox' type='text' value={username} placeholder='Enter username here' required onChange={(name)=>
                     {
                         setUsername(name.target.value);
-                    }}/>
+                    }}/> 
                 </div>
 
                 <div className='inputRow'>
-                    <p className='fieldName'>Password:</p> <input className='inputBox' type='password' value={password} placeholder='Password goes here' onChange={(pass)=>
+                    <p className='fieldName'>Password:</p> <input className='inputBox' type='password' value={password} required placeholder='Password goes here' onChange={(pass)=>
                     {
                         setPassword(pass.target.value);
                     }}/>

@@ -12,9 +12,6 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
-
-  // const router = useRouter();
 
   // const submitUser = async(a)=>
   // {
@@ -41,7 +38,9 @@ function SignUpForm() {
   {
     setYear(yea.target.value);
   }
+
   async function submitUser(e) {
+    const router = useRouter();
     e.preventDefault()
     var userData = 
     {
@@ -53,7 +52,7 @@ function SignUpForm() {
     };
 
     var GG=await axios.post('http://localhost:8000/',userData);
-    // router.push("/Home");
+    router.push("/Home");
     setFirstName('');
     setLastName('');
     setPassword('');
