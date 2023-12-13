@@ -60,7 +60,7 @@ function Register() {
 
         <div className='rContent'>
 
-            <Link href='/'>
+            <Link href='/Register'>
                 <button className='rButton'> Register </button>
             </Link>
 
