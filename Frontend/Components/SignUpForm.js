@@ -1,5 +1,6 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-
+import axios from 'axios';
 
 function SignUpForm() {
 
@@ -9,6 +10,23 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const router = useRouter();
+
+  const submitUser = async(a)=>
+  {
+    a.preventDefault();
+    try
+    {
+      const response = await axios.post("", {firstName, lastName, branch, year, username, password});
+      console.log(response);
+      router.push("/Home");
+    }
+    catch(err)
+    {
+      console.error(err);
+    }
+  }
 
   const changeBranch = (bra) =>
   {
@@ -100,7 +118,7 @@ function SignUpForm() {
 
           </div>  
 
-          <button className='createButton'>Create account</button>     
+          <button onClick={submitUser} className='createButton'>Create account</button>     
 
       </form>
 
