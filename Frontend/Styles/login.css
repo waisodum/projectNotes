@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login
+{
+    opacity: 0;
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(137, 118, 198);
+    color: white; */
+    /* border-radius: 0 10vw 10vw 0; */
+}
+
+.innerLogin
+{
+    height: 40vw;
+    width: 90%;
+    border-radius: 4.5vw ;
+    margin: 3vw;
+    background-color: #826cc7;
+    transition: all 0.2s ease-out;
+}
+
+.innerLogin:hover
+{
+    border-radius: 3vw;
+}
+
+.lHeading
+{
+    width: 100%;
+    height: 10%;
+    font-size: 2.5vw;
+    text-align: center;
+    font-weight: 600;
+    margin: 3vw;
+}
+
+.loginMethods
+{
+    font-size: 1.5vw;
+}
+
+.methodLink
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 1vw;
+    height: 2.5vw;
+    padding: 1vw;
+    transition: all 0.2s ease-out;
+}
+
+.methodLink:hover
+{
+    background-color: #a09f9f;
+}
+
+.methodIcon
+{
+    margin: 0 0.5vw 0 0 ;
+}
+
+.loginForm
+{
+    margin: 2vw 0;
+    height: 15vw;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 2vw;
+    /* background-color: rgb(137, 118, 198);
+    color: white; */
+}
+
+.fieldName
+{
+    font-size: 1.4vw;
+    margin: 0.2vw;
+    color: #fff;
+}
+
+.forgotPass
+{
+    margin: -0.5vw 0 0 0;
+    color: #fff;
+    font-size: 1.18vw;
+    transition: all 0.2s ease-out;
+}
+
+.forgotPass:hover
+{
+    color: #000;
+}
+
+.inputBox
+{
+    font-size: 1.4vw;
+    border-radius: 0.3vw;
+    margin: 0.2vw;
+    padding: 0 0.3vw;
+}
+
+.inputRow
+{
+    height: 3vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0.5vw;
+}
+
+.loginButton
+{
+    margin: 1vw ;
+    width: 7vw;
+    height: 2.8vw;
+    background-color: #2a2a2a;
+    border-radius: 1vw;
+    color: #fff;
+    font-size: 1.4vw;
+    font-weight: 600;
+    transition: all 0.2s ease-out;
+}
+
+.loginButton:hover
+{
+    border-radius: 1.5vw;
+    background-color: #fff;
+    color: #2a2a2a;
+    font-size: 1.46vw;
+}
