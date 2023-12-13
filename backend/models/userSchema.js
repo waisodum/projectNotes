@@ -34,7 +34,7 @@ const userSchema = new Schema({
   Subject: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }], // Reference to Post documents
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] // Reference to Post documents
 });
 
 // Create the User model
