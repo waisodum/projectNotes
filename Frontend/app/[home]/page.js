@@ -1,12 +1,15 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { MyContext } from "@/Helper/Context";
+import { useContext, useEffect, useState } from "react";
 
 
 
 const page = ({params}) => {
 
   const [data, setdata] = useState();
+  
+  const gloData = useContext(MyContext);
 
   const dat = ()=>
   {
@@ -22,7 +25,7 @@ const page = ({params}) => {
   return (
     <div>
 
-      {data}
+      {data} {gloData}
     
     </div>
   )

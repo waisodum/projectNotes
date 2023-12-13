@@ -1,3 +1,4 @@
+import  MyContext  from '@/Helper/Context'
 import '../Styles/globals.css'
 
 
@@ -9,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning >{children}</body>
+      <body suppressHydrationWarning >
+        <MyContext>
+            {children}
+        </MyContext>
+      </body>
     </html>
   )
 }
