@@ -3,8 +3,7 @@ const mongoose=require('mongoose');
 async function connecting() {
     await mongoose
     .connect(
-      "mongodb://emikealson139:Sal2212@ac-bvyyg4v-shard-00-00.1ripenz.mongodb.net:27017,ac-bvyyg4v-shard-00-01.1ripenz.mongodb.net:27017,ac-bvyyg4v-shard-00-02.1ripenz.mongodb.net:27017/?ssl=true&replicaSet=atlas-12s8c1-shard-0&authSource=admin&retryWrites=true&w=majority"
-    )
+    process.env.Uri)
     .then(() => {
       console.log("connected to db");
     }).catch((err)=>{
