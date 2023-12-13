@@ -1,7 +1,8 @@
-import { data } from 'autoprefixer';
-import axios from 'axios';
-import React, { useState } from 'react'
 
+import { data } from 'autoprefixer'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
 
 function SignUpForm() {
 
@@ -13,6 +14,24 @@ function SignUpForm() {
   const [password, setPassword] = useState('');
   
 
+  // const router = useRouter();
+
+  // const submitUser = async(a)=>
+  // {
+  //   a.preventDefault();
+  //   try
+  //   {
+  //     const response = await axios.post("", {firstName, lastName, branch, year, username, password});
+  //     console.log(response);
+  //     router.push("/Home");
+  //   }
+  //   catch(err)
+  //   {
+  //     console.error(err);
+  //   }
+  // }
+
+
   const changeBranch = (bra) =>
   {
     setBranch(bra.target.value);
@@ -22,7 +41,7 @@ function SignUpForm() {
   {
     setYear(yea.target.value);
   }
-  async function handleSubmit(e) {
+  async function submitUser(e) {
 e.preventDefault()
     var userData = {
       Name: `${firstName} ${lastName}`,
@@ -33,6 +52,7 @@ e.preventDefault()
     };
 
 var GG=await axios.post('http://localhost:8000/',userData);
+// router.push("/Home");
  setFirstName('');
  setLastName('');
  setPassword('');
@@ -40,10 +60,11 @@ var GG=await axios.post('http://localhost:8000/',userData);
  setBranch('');
  setYear('');
 }
+
   return (
     <div className='signUpForm'>
 
-      <form className='mainForm' onSubmit={handleSubmit}>
+      <form className='mainForm' onSubmit={submitUser}>
 
         <div className='inputRow2'>
 
@@ -122,7 +143,9 @@ var GG=await axios.post('http://localhost:8000/',userData);
 
           </div>  
 
-          <button className='createButton' type='submit' >Create account</button>     
+
+          <button onClick={submitUser} className='createButton'>Create account</button>     
+
 
       </form>      </div>
   )
