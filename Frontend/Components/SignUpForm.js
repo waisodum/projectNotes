@@ -1,3 +1,5 @@
+import { data } from 'autoprefixer';
+import axios from 'axios';
 import React, { useState } from 'react'
 
 
@@ -9,6 +11,7 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const changeBranch = (bra) =>
   {
@@ -19,17 +22,34 @@ function SignUpForm() {
   {
     setYear(yea.target.value);
   }
+  async function handleSubmit(e) {
+e.preventDefault()
+    var userData = {
+      Name: `${firstName} ${lastName}`,
+      branch,
+      year,
+      username,
+      password,
+    };
 
+var GG=await axios.post('http://localhost:8000/',userData);
+ setFirstName('');
+ setLastName('');
+ setPassword('');
+ setUsername('');
+ setBranch('');
+ setYear('');
+}
   return (
     <div className='signUpForm'>
 
-      <form className='mainForm'>
+      <form className='mainForm' onSubmit={handleSubmit}>
 
         <div className='inputRow2'>
 
           <div className='field1'>
 
-            <h4 className='fieldName'>First name: </h4> <input className='fieldValue' type='text' name='firstname' placeholder='Name' onChange={(ip)=>
+            <h4 className='fieldName'>First name: </h4> <input className='fieldValue' type='text' value={firstName} placeholder='Name' onChange={(ip)=>
             {
               setFirstName(ip.target.value);
             }} required/>
@@ -38,7 +58,7 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Last name: </h4> <input className='fieldValue' type='text' name='lastname' placeholder='Last Name' onChange={(ip)=>
+            <h4 className='fieldName'>Last name: </h4> <input className='fieldValue' type='text' placeholder='Last Name' value={lastName}onChange={(ip)=>
             {
               setLastName(ip.target.value);
             }} required/>
@@ -84,27 +104,27 @@ function SignUpForm() {
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Username: </h4> <input className='fieldValue' type='text' name='username' placeholder='Set a new username' onChange={(ip)=>
+            <h4 className='fieldName'>Username: </h4> <input className='fieldValue' value={username} type='text' placeholder='Set a new username' onChange={async (ip)=>
             {
               setUsername(ip.target.value);
+            
             }} required/>
 
           </div>
 
           <div className='field1'>
 
-            <h4 className='fieldName'>Password: </h4> <input className='fieldValue w-[18vw]' type='password' name='password' placeholder='Needs to be strong' onChange={(ip)=>
+            <h4 className='fieldName'>Password: </h4> <input className='fieldValue w-[18vw]' value={password} type='password' placeholder='Needs to be strong' onChange={(ip)=>
             {
               setPassword(ip.target.value);
+              
             }} required/>
 
           </div>  
 
-          <button className='createButton'>Create account</button>     
+          <button className='createButton' type='submit' >Create account</button>     
 
-      </form>
-
-      </div>
+      </form>      </div>
   )
 }
 
