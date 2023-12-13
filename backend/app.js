@@ -6,8 +6,8 @@ var logger = require('morgan');
 var cors= require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const user = require('./models/userSchema');
-const { hashSync } = require('bcrypt');
+// const user = require('./models/userSchema');
+// const { hashSync } = require('bcrypt');
 
 var app = express();
 
@@ -30,30 +30,30 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-app.post('/Register',(req,res) => {
-  const user = new userModel({
-    username : req.body.username,
-    password : hashSync(req.body.password,10)
-  })
-  user.save().then(user=>{
-    res.send({
-      success: true,
-      message: "User created successfully",
-      user: {
-        id : user._id,
-        username : user.username
-      }
-    })
-  }).catch(err=>{
-    res.send({
-      success: false,
-      message: "Something went wrong",
-     error: err
-    })
+// app.post('/Register',(req,res) => {
+//   const user = new userModel({
+//     username : req.body.username,
+//     password : hashSync(req.body.password,10)
+//   })
+//   user.save().then(user=>{
+//     res.send({
+//       success: true,
+//       message: "User created successfully",
+//       user: {
+//         id : user._id,
+//         username : user.username
+//       }
+//     })
+//   }).catch(err=>{
+//     res.send({
+//       success: false,
+//       message: "Something went wrong",
+//      error: err
+//     })
 
-  })
+//   })
 
-})
+// })
 
 // error handler
 app.use(function(err, req, res, next) {
