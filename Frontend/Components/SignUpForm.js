@@ -42,8 +42,9 @@ function SignUpForm() {
     setYear(yea.target.value);
   }
   async function submitUser(e) {
-e.preventDefault()
-    var userData = {
+    e.preventDefault()
+    var userData = 
+    {
       Name: `${firstName} ${lastName}`,
       branch,
       year,
@@ -51,15 +52,15 @@ e.preventDefault()
       password,
     };
 
-var GG=await axios.post('http://localhost:8000/',userData);
-// router.push("/Home");
- setFirstName('');
- setLastName('');
- setPassword('');
- setUsername('');
- setBranch('');
- setYear('');
-}
+    var GG=await axios.post('http://localhost:8000/',userData);
+    // router.push("/Home");
+    setFirstName('');
+    setLastName('');
+    setPassword('');
+    setUsername('');
+    setBranch('');
+    setYear('');
+  }
 
   return (
     <div className='signUpForm'>
