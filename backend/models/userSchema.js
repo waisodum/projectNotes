@@ -6,7 +6,7 @@ async function connecting() {
       "mongodb://emikealson139:Sal2212@ac-bvyyg4v-shard-00-00.1ripenz.mongodb.net:27017,ac-bvyyg4v-shard-00-01.1ripenz.mongodb.net:27017,ac-bvyyg4v-shard-00-02.1ripenz.mongodb.net:27017/?ssl=true&replicaSet=atlas-12s8c1-shard-0&authSource=admin&retryWrites=true&w=majority"
     )
     .then(() => {
-      console.log("hi");
+      console.log("connected to db");
     }).catch((err)=>{
 console.log(err);
     })
@@ -28,8 +28,10 @@ Subject: { type: String, required: true },
 
 // Define the User schema
 const userSchema = new Schema({
-  Uid:String,
   username: { type: String, required: true, unique: true },
+  Branch: { type: String, required: true },
+  Year: { type: String, required: true },
+  Subject: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }], // Reference to Post documents

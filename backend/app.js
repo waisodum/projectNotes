@@ -38,6 +38,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.listen('8000',()=>{
-  console.log('hi');
+  console.log('server started');
 })
 
