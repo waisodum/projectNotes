@@ -1,62 +1,61 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var createUser = require('../models/userSchema').User
-const { hashSync } = require('bcrypt');
+var createUser = require("../models/userSchema").User;
+const { hashSync } = require("bcrypt");
 
 
-
-/* GET home page. */
-router.post('/', function(req, res, next) {
-  data=req.body
-  console.log(data);
-  res.send('good')
-});
-router.post('/i',(req,res,next)=>{
-  console.log(req.body)
-createUser.find()})
-router.get('/',(req,res,next)=>{
-  res.send('hi')
-})
-router.post('/Register',async(req,res)=>{
+router.post("/Register", async (req, res) => {
   //var hashedPassword =
-   const user = new createUser({
-     username : req.body.username,
-   password :   await hashSync(req.body.password,10),
-   Branch:'fe',
-   Year: 'jgfd',
-   Subject: 'kjhgv',
-   email: 'kjbh',
-   posts: [],
+  var userName = req.body.username;
+  var found;
+  //req.body.username
+  await  createUser.findOne({ username: userName }).then((user) => {
+     console.log(user);
+    found = user;
+  });
 
-})
-console.log(user);
-await  user.save().then(user=>{
-    res.send({
-      success: true,
-      message: "User created successfully",
-      user: {
-        id : user._id,
-        username : user.username
-      }
-    })
-  }).catch(err=>{
-    res.send({
-      success: false,
-      message: "Something went wrong",
-     error: err
-    })
+  if (found) {
 
-  })
-  let data = await createUser.find({});
-console.log(data);
+return res.send({USER:false});
+  }
+
+  var data = {
+    username: req.body.username,
+    password: await hashSync(req.body.password, 10),
+    Branch: req.body.branch,
+    Year: req.body.year,
+    email: req.body.email,
+    posts: [],
+  };
+  const user = new createUser(data);
+  await user
+    .save()
+    .then((user) => {
+      res.send({
+        success: true,
+        message: "User created successfully",
+        user: {
+          id: user._id,
+          username: user.username,
+        },
+      });
+    })
+    .catch((err) => {
+      res.send({
+        success: false,
+        message: "Something went wrong",
+        error: err,
+      });
+    });
+
   // res.send('hello from register')
-})
-router.delete('/delete',async(req,res,next)=>{
-await createUser.deleteMany({}).then(()=>{
-  res.send('ok will do')
 });
-let data = await createUser.find({});
-console.log(data);
-})
+router.delete("/delete", async (req, res, next) => {
+  await createUser.deleteMany({}).then(() => {
+    res.send("ok will do");
+  });
+  let data = await createUser.find({});
+  console.log(data);
+});
 
 module.exports = router;

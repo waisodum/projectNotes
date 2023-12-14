@@ -30,7 +30,6 @@ const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   Branch: { type: String, required: true },
   Year: { type: String, required: true },
-  Subject: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] // Reference to Post documents

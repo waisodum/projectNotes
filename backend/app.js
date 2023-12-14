@@ -6,7 +6,6 @@ var logger = require('morgan');
 var cors= require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const userModel = require('./models/userSchema');
 const { hashSync } = require('bcrypt');
 
 var app = express();

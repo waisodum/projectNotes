@@ -32,7 +32,7 @@ e.preventDefault()
       password,
     };
 
-var GG=await axios.post('http://localhost:8000/',userData);
+var GG=await axios.post('http://localhost:8000/Register',userData);
  setFirstName('');
  setLastName('');
  setPassword('');
