@@ -32,6 +32,7 @@ return res.send({USER:false});
     .save()
     .then((user) => {
       res.send({
+        USER:true,
         success: true,
         message: "User created successfully",
         user: {
