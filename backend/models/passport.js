@@ -7,15 +7,15 @@ opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = 'randomstring';
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     console.log(jwt_payload);
-    createUser.findOne({id: jwt_payload.sub}, function(err, user) {
-        if (err) {
-            return done(err, false);
-        }
+  
+    createUser.findOne({_id: jwt_payload.id}).then(function(user) {
         if (user) {
             return done(null, user);
         } else {
             return done(null, false);
             // or you could create a new account
         }
+    }).catch(err=>{
+        done(err,false)
     });
 }));

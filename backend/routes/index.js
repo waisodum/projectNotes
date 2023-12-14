@@ -1,36 +1,19 @@
 var express = require("express");
 var router = express.Router();
-var createUser = require('../models/userSchema').User
-const { hashSync, compareSync } = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const passport = require('passport');
-router.use(passport.initialize());
-require('../models/passport');
-/* GET home page. */
-// router.post('/', function(req, res, next) {
-//   data=req.body
-//   console.log(data);
-//   res.send('good')
-// });
-// router.post('/i',(req,res,next)=>{
-//   console.log(req.body)
-// createUser.find()})
-// router.get('/',(req,res,next)=>{
-//   res.send('hi')
-// })
-router.post('/Register',async(req,res)=>{
-  //var hashedPassword =
+var createUser = require("../models/userSchema").User;
+const { hashSync, compareSync } = require("bcrypt");
+
+
+router.post("/Register", async (req, res) => {
   var userName = req.body.username;
   var found;
-  //req.body.username
-  await  createUser.findOne({ username: userName }).then((user) => {
-     console.log(user);
+  await createUser.findOne({ username: userName }).then((user) => {
+    console.log(user);
     found = user;
   });
 
   if (found) {
-
-return res.send({USER:false});
+    return res.send({ USER: false });
   }
 
   var data = {
@@ -42,11 +25,10 @@ return res.send({USER:false});
     posts: [],
   };
   const user = new createUser(data);
-  await user
-    .save()
+  await user.save()
     .then((user) => {
       res.send({
-        USER:true,
+        USER: true,
         success: true,
         message: "User created successfully",
         user: {
@@ -62,52 +44,14 @@ return res.send({USER:false});
         error: err,
       });
     });
+});
 
-  // res.send('hello from register')
-})
-router.post('/login',(req,res) => {
-  createUser.findOne({username: req.body.username}).then(user => {
-    if (!user){
-      return res.status(401).send({
-        success: false,
-        message: "could not find the user."
-      })
-    }
-    if(!compareSync(req.body.password,user.password)){
-      return res.status(401).send({
-        success: false,
-        message: "Incorrect password"
-      })
-    }
-    const payload = {
-      username: user.username,
-      id: user._id
-    }
-    const token = jwt.sign(payload, "randomstring",{ expiresIn : "365d"})
-
-    return res.status(200).send({
-      success: true,
-      message: "loggedin successfully",
-      token: "bearer" + token
-    })
-  })
-
-})
-router.get('/protected',passport.authenticate('jwt',{session: false}),(req,res) => {
-  return res.status(200).send({
-    success: false,
-   user : {
-    id: req.user._id,
-    username: req.user.username
-   }
-  })
-})
- router.delete("/delete", async (req, res, next) => {
-   await createUser.deleteMany({}).then(() => {
-     res.send("ok will do");
-   });
-   let data = await createUser.find({});
-   console.log(data);
- });
+router.delete("/delete", async (req, res, next) => {
+  await createUser.deleteMany({}).then(() => {
+    res.send("ok will do");
+  });
+  let data = await createUser.find({});
+  console.log(data);
+});
 
 module.exports = router;
