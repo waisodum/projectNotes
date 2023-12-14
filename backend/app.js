@@ -7,6 +7,8 @@ var cors= require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const { hashSync } = require('bcrypt');
+// const user = require('./models/userSchema');
+// const { hashSync } = require('bcrypt');
 
 var app = express();
 
