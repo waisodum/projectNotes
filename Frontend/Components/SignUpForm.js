@@ -1,7 +1,8 @@
-import { data } from 'autoprefixer';
-import axios from 'axios';
-import React, { useState } from 'react'
 
+import { data } from 'autoprefixer'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
 
 function SignUpForm() {
 
@@ -11,7 +12,22 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
+
+  // const submitUser = async(a)=>
+  // {
+  //   a.preventDefault();
+  //   try
+  //   {
+  //     const response = await axios.post("", {firstName, lastName, branch, year, username, password});
+  //     console.log(response);
+  //     router.push("/Home");
+  //   }
+  //   catch(err)
+  //   {
+  //     console.error(err);
+  //   }
+  // }
+
 
   const changeBranch = (bra) =>
   {
@@ -22,9 +38,33 @@ function SignUpForm() {
   {
     setYear(yea.target.value);
   }
-  async function handleSubmit(e) {
-e.preventDefault()
-    var userData = {
+
+  // async function submitUser(e) {
+  //   const router = useRouter();
+  //   e.preventDefault()
+  //   var userData = 
+  //   {
+  //     Name: `${firstName} ${lastName}`,
+  //     branch,
+  //     year,
+  //     username,
+  //     password,
+  //   };
+
+  //   var GG=await axios.post('http://localhost:8000/',userData);
+  //   router.push("/Home");
+  //   setFirstName('');
+  //   setLastName('');
+  //   setPassword('');
+  //   setUsername('');
+  //   setBranch('');
+  //   setYear('');
+  // }
+
+  async function submitUser(e) {
+    e.preventDefault();
+    
+    const userData = {
       Name: `${firstName} ${lastName}`,
       branch,
       year,
@@ -32,18 +72,26 @@ e.preventDefault()
       password,
     };
 
-var GG=await axios.post('http://localhost:8000/',userData);
- setFirstName('');
- setLastName('');
- setPassword('');
- setUsername('');
- setBranch('');
- setYear('');
-}
+    try {
+      await axios.post('http://localhost:8000/', userData);
+      setFirstName('');
+      setLastName('');
+      setPassword('');
+      setUsername('');
+      setBranch('');
+      setYear('');
+
+      router.push("/[home]");
+    } catch (error) {
+
+      console.error('Error submitting user:', error);
+    }
+  }
+
   return (
     <div className='signUpForm'>
 
-      <form className='mainForm' onSubmit={handleSubmit}>
+      <form className='mainForm' onSubmit={submitUser}>
 
         <div className='inputRow2'>
 
@@ -54,7 +102,7 @@ var GG=await axios.post('http://localhost:8000/',userData);
               setFirstName(ip.target.value);
             }} required/>
 
-          </div>
+          </div>  
 
           <div className='field1'>
 
@@ -122,7 +170,9 @@ var GG=await axios.post('http://localhost:8000/',userData);
 
           </div>  
 
-          <button className='createButton' type='submit' >Create account</button>     
+
+          <button onClick={submitUser} className='createButton'>Create account</button>     
+
 
       </form>      </div>
   )
