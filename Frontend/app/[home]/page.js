@@ -1,34 +1,27 @@
 'use client'
 
-import { MyContext } from "@/Helper/Context";
+import Navbar from "@/Components/Navbar";
+import LeftMenu from "@/Components/LeftMenu";
+// import { ProfileData } from "@/Helper/Context";
 import { useContext, useEffect, useState } from "react";
-
+import "../../Styles/notesPage.css"
 
 
 const page = ({params}) => {
 
-  const [data, setdata] = useState();
   
-  const gloData = useContext(MyContext);
-
-  const dat = ()=>
-  {
-    setdata(params.home)
-    // console.log(data)
-  }
-
-  useEffect(()=>
-  {
-    dat()
-  }, []);
+  // const gloData = useContext(MyContext);
 
   return (
-    <div>
+    <div className="notesMain">
 
-      {data} {gloData}
-    
+    <Navbar />
+
+    <LeftMenu />
+       
     </div>
   )
 }
 
 export default page;
+    

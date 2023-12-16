@@ -1,4 +1,4 @@
-import  MyContext  from '@/Helper/Context'
+import  ProfileData  from '@/Helper/Context'
 import '../Styles/globals.css'
 
 
@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning >
-        <MyContext>
+        <ProfileData>
             {children}
-        </MyContext>
+        </ProfileData>
       </body>
     </html>
   )

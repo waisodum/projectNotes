@@ -39,11 +39,32 @@ function SignUpForm() {
     setYear(yea.target.value);
   }
 
+  // async function submitUser(e) {
+  //   const router = useRouter();
+  //   e.preventDefault()
+  //   var userData = 
+  //   {
+  //     Name: `${firstName} ${lastName}`,
+  //     branch,
+  //     year,
+  //     username,
+  //     password,
+  //   };
+
+  //   var GG=await axios.post('http://localhost:8000/',userData);
+  //   router.push("/Home");
+  //   setFirstName('');
+  //   setLastName('');
+  //   setPassword('');
+  //   setUsername('');
+  //   setBranch('');
+  //   setYear('');
+  // }
+
   async function submitUser(e) {
-    const router = useRouter();
-    e.preventDefault()
-    var userData = 
-    {
+    e.preventDefault();
+    
+    const userData = {
       Name: `${firstName} ${lastName}`,
       branch,
       year,
@@ -51,14 +72,20 @@ function SignUpForm() {
       password,
     };
 
-    var GG=await axios.post('http://localhost:8000/',userData);
-    router.push("/Home");
-    setFirstName('');
-    setLastName('');
-    setPassword('');
-    setUsername('');
-    setBranch('');
-    setYear('');
+    try {
+      await axios.post('http://localhost:8000/', userData);
+      setFirstName('');
+      setLastName('');
+      setPassword('');
+      setUsername('');
+      setBranch('');
+      setYear('');
+
+      router.push("/[home]");
+    } catch (error) {
+
+      console.error('Error submitting user:', error);
+    }
   }
 
   return (
@@ -75,7 +102,7 @@ function SignUpForm() {
               setFirstName(ip.target.value);
             }} required/>
 
-          </div>
+          </div>  
 
           <div className='field1'>
 
