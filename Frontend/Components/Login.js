@@ -27,9 +27,46 @@ function handleSubmit(e) {
     e.preventDefault();
 }
   return (
-    <div className="login">
-      <div className="innerLogin login">
-        <h1 className="lHeading">Sign In</h1>
+    <div className='login'>
+        
+        <div className='innerLogin login'>
+
+            <h1 className='lHeading'>
+                Sign In
+            </h1>
+
+            <div className='loginMethods'>
+
+                <Link href='/' className='methodLink'>
+                    <div className='methodIcon'><FcGoogle /></div> <h2 className='methodName'>Google</h2>
+                </Link>
+            </div>
+
+            <form className='loginForm'>
+
+                <div className='inputRow'>
+                    <p className='fieldName'>Username:</p> <input className='inputBox' type='text' value={username} placeholder='Enter username here' required onChange={(name)=>
+                    {
+                        setUsername(name.target.value);
+                    }}/> 
+                </div>
+
+                <div className='inputRow'>
+                    <p className='fieldName'>Password:</p> <input className='inputBox' type='password' value={password} required placeholder='Password goes here' onChange={(pass)=>
+                    {
+                        setPassword(pass.target.value);
+                    }}/>
+                    
+                </div>
+                <Link className='forgotPass' href='/'>Forgot Password? </Link>
+
+                <div className='inputRow'>
+                    <button className='loginButton'>
+                        Sign In
+                    </button>
+                </div>
+
+            </form>
 
         <div className="loginMethods">
           <Link href="/" className="methodLink">

@@ -1,6 +1,8 @@
-import { useRouter } from 'next/router';
+
+import { data } from 'autoprefixer'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import axios from 'axios';
 
 function SignUpForm() {
   const [firstName, setFirstName] = useState("");
@@ -54,7 +56,7 @@ if (GG.data.errr) {
       alert("username exists");
     } 
     else {
-      router.push('/')
+      router.push('/[home]')
       setEmail("");
       setFirstName("");
       setLastName("");
@@ -67,22 +69,20 @@ if (GG.data.errr) {
   }
 
   return (
-    <div className="signUpForm">
-      <form className="mainForm" onSubmit={handleSubmit}>
-        <div className="inputRow2">
-          <div className="field1">
-            <h4 className="fieldName">First name: </h4>{" "}
-            <input
-              className="fieldValue"
-              type="text"
-              value={firstName}
-              placeholder="Name"
-              onChange={(ip) => {
-                setFirstName(ip.target.value);
-              }}
-              required
-            />
-          </div>
+    <div className='signUpForm'>
+
+      <form className='mainForm' onSubmit={submitUser}>
+
+        <div className='inputRow2'>
+
+          <div className='field1'>
+
+            <h4 className='fieldName'>First name: </h4> <input className='fieldValue' type='text' value={firstName} placeholder='Name' onChange={(ip)=>
+            {
+              setFirstName(ip.target.value);
+            }} required/>
+
+          </div>  
 
           <div className="field1">
             <h4 className="fieldName">Last name: </h4>{" "}
