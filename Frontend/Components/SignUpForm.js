@@ -1,7 +1,6 @@
-// import { data } from "autoprefixer";
-import axios from "axios";
-import React, { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react'
+import axios from 'axios';
 
 function SignUpForm() {
   const [firstName, setFirstName] = useState("");
