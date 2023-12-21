@@ -63,6 +63,7 @@ function Register() {
             <Link href='/Register'>
                 <button className='rButton'> Register </button>
             </Link>
+         
 
         </div>
 

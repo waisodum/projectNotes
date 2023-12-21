@@ -29,7 +29,7 @@ router.post('/',(req,res) => {
       }
       const token = jwt.sign(payload, "randomstring",{ expiresIn : "14d"})
   
-      return res.status(200).send({
+      return res.status(200).cookie({
         success: true,
         message: "loggedin successfully",
         token: "Bearer " + token

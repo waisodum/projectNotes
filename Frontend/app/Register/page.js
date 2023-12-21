@@ -7,7 +7,6 @@ import gsap from 'gsap'
 
 
 function Register() {
-
   const [text, setText] = useState("Sign Up");
 
   useEffect(()=>
@@ -37,14 +36,7 @@ function Register() {
   {
     setText("Sign Up")
   }
-                                                                     
 
-
-
-
-
-
-  
   return (
     <div className='signUpBody'>
 
