@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useContext, useState } from 'react'
-import "../Styles/profileNav.css"
+import "../Styles/profile.css"
 import { ProfileData } from '@/Helper/Context'
 import Link from 'next/link'
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -33,9 +33,9 @@ function profileNav() {
   return (
     <div className='navbar'>
     
-        <div className='logo'>
+        <Link href='/' className='logo'>
             {data.websiteName}
-        </div>
+        </Link>
 
         <div className='profile'>
 

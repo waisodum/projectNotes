@@ -2,6 +2,7 @@
 import React from 'react'
 import '../../Styles/profile.css'
 import ProfileNav from '@/Components/ProfileNav'
+import ProfileBody from '@/Components/ProfileBody'
 
 
 function page() {
@@ -9,6 +10,8 @@ function page() {
     <div className='profileMain'>
 
         <ProfileNav />
+
+        <ProfileBody/>
 
     </div>
   )
