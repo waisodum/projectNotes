@@ -41,11 +41,12 @@ function profileNav() {
 
           <div className='profileName' onClick={()=>{setMenu(!menu)}} 
           style={menu? {backgroundColor: "#2a2a2a", color: 'aliceblue', borderRadius: '0.5vw 0.5vw 0 0'} : {backgroundColor: '#ffffff31'}}>
-            <div className='profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-slate-900'><FaRegCircleUser /></div>
+            <div className='profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-slate-900'><FaRegCircleUser 
+            style={menu? {color: 'aliceblue'} : {}} /></div>
             <h5 className='text-[1.3vw] m-[0.2vw]'> {data.firstName} </h5>
             <div className='downArrow text-[1.1vw] mt-[0.3vw] rounded-[1vw] inline-block w-[1.5vw] text-slate-900' style={menu? {transform: 'rotate(180deg) translateX(-10px)'} : {}}><FaAngleDown 
             style={
-                menu? {transform: 'translateX(16.5px)', borderRadius: '0.4vw', backgroundColor: 'aliceblue'} : {}
+                menu? {transform: 'translateX(16.5px)', borderRadius: '0.4vw', color: 'aliceblue'} : {}
             }
             /></div>
           </div>
