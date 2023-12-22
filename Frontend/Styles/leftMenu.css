@@ -11,7 +11,7 @@
     left: 0;
     height: 100vh;
     background-color: #5337AC;
-    border-radius: 0 0 1vw 0;
+    /* border-radius: 0 0 1vw 0; */
     padding: 1vw;
     color: aliceblue;
     opacity: 0;
@@ -103,7 +103,7 @@
 {
     background-color: #ffffff26;
     border-radius: 1.8vw 0 0 1.8vw;
-    scale: 0.995;
+    scale: 0.992;
 }
 
 .subjectNames:active
