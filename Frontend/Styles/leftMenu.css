@@ -15,7 +15,7 @@
     padding: 1vw;
     color: aliceblue;
     opacity: 0;
-    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
 }
 
 .logo
@@ -32,7 +32,7 @@
 
 .cNone
 {
-    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
 }
 
 .restMenu
