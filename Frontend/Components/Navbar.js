@@ -59,7 +59,8 @@ function Navbar() {
         
         <div className='profile'>
 
-          <div className='profileName' onClick={()=>{setMenu(!menu)}}>
+          <div className='profileName' onClick={()=>{setMenu(!menu)}} 
+          style={menu? {borderRadius: '0.5vw 0.5vw 0 0'} : {backgroundColor: '#ffffff31'}}>
             <div className='profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-slate-900'><FaCircleUser /></div>
             <h5 className='text-[1.3vw] m-[0.2vw]'> {firstName} </h5>
             <div className='downArrow text-[1.1vw] mt-[0.3vw] inline-block w-[1.5vw] text-slate-900' style={menu? {transform: 'rotate(180deg)'} : {}}><FaAngleDown 

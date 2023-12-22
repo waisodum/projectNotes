@@ -40,11 +40,12 @@
 {
     width: 9vw;
     height: 2.7vw;
-    border-radius: 0.5vw 0.5vw 0 0;
+    border-radius: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: #ffffff31;
+    transition: all 0.2s ease-out;
 }
 
 .dropdown

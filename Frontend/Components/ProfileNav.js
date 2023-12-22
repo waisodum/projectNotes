@@ -54,7 +54,7 @@ function profileNav() {
           <div className='dropdown'
           style={menu ? dropdown : {display: 'none'}}>
 
-            <Link href='/Profile' className='menuButton'>
+            <Link href='/notesPage' className='menuButton'>
               <h6 className='menuText'>Notes</h6>
               <div className='mIcon'><MdArrowForwardIos /></div>
             </Link>
