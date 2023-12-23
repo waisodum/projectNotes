@@ -1,10 +1,11 @@
-'use client'
-
+'use client'                                          
 import { ProfileData } from '@/Helper/Context'
 import React, { useContext, useEffect, useState } from 'react'
 import "../Styles/leftMenu.css"
 import Link from 'next/link'
 import gsap from 'gsap'
+import { Router } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 function Navbar() {
 
@@ -15,35 +16,10 @@ function Navbar() {
   const [sNo, setSNo] = useState(1);
 
   const [sem, setSem] = useState("Odd");
-
-  const semChange = ()=>
-  {
-    if (sem === "Even")
-    {
-      setSem("Odd");
-      setSNo(1);
-    }
-
-    else if (sem === "Odd")
-    {
-      setSem("Even");
-      setSNo(2);
-    }
-  }
-
-  const branch = data.branch;
-
-  const year = data.year;
-
-  const clickResponse = (subject)=>
-  {
-    setActiveSub(subject == activeSub ? null : subject);
-  }
-
-  const subjectsList = subjects[branch][year][sNo];
-
+  const router=useRouter()
   useEffect(()=>
   {
+  
     const t = gsap.timeline();
 
     t.to('.leftMenu', {
@@ -62,6 +38,39 @@ function Navbar() {
     })
 
   },[]);
+  const semChange = ()=>
+  {
+    if (sem === "Even")
+    {
+      setSem("Odd");
+      setSNo(1);
+    }
+
+    else if (sem === "Odd")
+    {
+      setSem("Even");
+      setSNo(2);
+    }
+  }
+  
+if (!data.branch) {
+  router.push('/')           
+  return null
+}
+
+
+ const branch = data.branch;
+
+   const year = data.year;
+
+  
+   const subjectsList = subjects[branch][year][sNo];
+  
+  const clickResponse = (subject)=>
+  {
+    setActiveSub(subject == activeSub ? null : subject);
+  }
+ 
 
   return (
     <div className='leftMenu'>

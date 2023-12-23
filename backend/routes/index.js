@@ -19,13 +19,15 @@ router.post("/Register", async (req, res) => {
   });
 
   if (found) {
-    return res.send({errr:false, USER: false ,Email:false});
+    return res.send({success:false,message:"Username Exists"});
   }
   if (email) {
-    return res.send({errr:false, USER: false ,Email:false});
+    return res.send({success:false,message:"email already exists"});
   }
 
   var data = {
+    firstname:req.body.firstname,
+    lastname:req.body.lasname,
     username: req.body.username,
     password: await hashSync(req.body.password, 10),
     Branch: req.body.branch,
@@ -37,9 +39,6 @@ router.post("/Register", async (req, res) => {
   await user.save()
     .then((user) => {
       res.send({
-        errr:false,
-        USER: true,
-        Email:true,
         success: true,
         message: "User created successfully",
         user: {
@@ -47,10 +46,11 @@ router.post("/Register", async (req, res) => {
           username: user.username,
         },
       });
+
     })
     .catch((err) => {
+      
       res.send({
-        USER:false,
         success: false,
         message: "Something went wrong",
         error: err,

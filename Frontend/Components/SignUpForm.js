@@ -1,7 +1,7 @@
 
 import { data } from 'autoprefixer'
 import axios from 'axios'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 function SignUpForm() {
@@ -25,10 +25,11 @@ function SignUpForm() {
 
 
 
-  async function handleSubmit(e) {
+  async function submitUser(e) {
     e.preventDefault();
     var userData = {
-      Name: `${firstName} ${lastName}`,
+      firstname: firstName,
+      lasname:lastName,
       branch,
       year,
       username,
@@ -37,35 +38,32 @@ function SignUpForm() {
     };
 try
 {    var GG = await axios.post("http://localhost:8000/Register", userData);
+
+  
+if (!GG.data.success) {
+  setUsername("");
+  setEmail("")
+  alert(GG.data.message);
+  return null
+} 
+else {
+  router.push('/')
+  setEmail("");
+  setFirstName("");
+  setLastName("");
+  setPassword("");
+  setUsername("");
+  setBranch("");
+  setYear("");
+  
+}
 }  
 catch(err){
-alert('Theres some error in server')
+alert('Theres some error in server plz contact us')
   return null;
-
 }
-if (GG.data.errr) {
-      alert("Internal server error plz contact us");
-    }
 
-    if (!GG.data.Email) {
-      setEmail("");
-      alert("Email exists");
-    }
-    if (!GG.data.USER) {
-      setUsername("");
-      alert("username exists");
-    } 
-    else {
-      router.push('/[home]')
-      setEmail("");
-      setFirstName("");
-      setLastName("");
-      setPassword("");
-      setUsername("");
-      setBranch("");
-      setYear("");
-      
-    }
+
   }
 
   return (
@@ -83,7 +81,6 @@ if (GG.data.errr) {
             }} required/>
 
           </div>  
-
           <div className="field1">
             <h4 className="fieldName">Last name: </h4>{" "}
             <input

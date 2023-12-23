@@ -27,6 +27,8 @@ Subject: { type: String, required: true },
 
 // Define the User schema
 const userSchema = new Schema({
+  firstname:{ type: String, required: true },
+  lastname:{ type: String, required: true },
   username: { type: String, required: true, unique: true },
   Branch: { type: String, required: true },
   Year: { type: String, required: true },

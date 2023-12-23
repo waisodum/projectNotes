@@ -6,8 +6,6 @@ const passport = require('passport')
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = 'randomstring';
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    console.log(jwt_payload);
-  
     createUser.findOne({_id: jwt_payload.id}).then(function(user) {
         if (user) {
             return done(null, user);
