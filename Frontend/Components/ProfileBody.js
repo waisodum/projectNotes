@@ -6,9 +6,9 @@ import { ProfileData } from '@/Helper/Context'
 
 function ProfileBody() {
 
-    const {data, subjects} = useContext(ProfileData);
+    const {data, subjects, updateUserData} = useContext(ProfileData);
 
-    const greetings = ["Heyy,", "Hello,"];
+    const greetings = ["Heyy,", "Hello,", "Kaisan ba,", "Kasa kay?"];
 
     const [greet, setGreet] = useState('');
 
