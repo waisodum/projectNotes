@@ -19,17 +19,7 @@ function Context({children}) {
   {
     setData(newData);
   }
-
-    // const data = {
-    //   firstName: "Sanket",
-    //   lastName: "Sonawane",
-    //   username: "SanketSonawane11",
-    //   email:"sanketsona19@gmail.com",
-    //   branch: "EXTC",
-    //   year: "SE",
-    //   websiteName: "Campus Chronicles",
-    // };
-
+  
     const subjects = {
       CS: 
       {
