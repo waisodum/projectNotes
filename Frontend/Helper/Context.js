@@ -1,19 +1,34 @@
 'use client'
 
-import React, {createContext} from 'react'
+import React, {createContext, useState} from 'react'
 export const ProfileData = createContext();
 
 function Context({children}) {
 
-    const data = {
-      firstName: "Sanket",
-      lastName: "Sonawane",
-      username: "SanketSonawane11",
-      email:"sanketsona19@gmail.com",
-      branch: "EXTC",
-      year: "SE",
-      websiteName: "Campus Chronicles",
-    };
+  const [data, setData] = useState({
+    firstName: "Sanket",
+    lastName: "Sonawane",
+    username: "SanketSonawane11",
+    email:"sanketsona19@gmail.com",
+    branch: "EXTC",
+    year: "SE",
+    websiteName: "Campus Chronicles",
+  });
+
+  const updateUserData = (newData)=>
+  {
+    setData(newData);
+  }
+
+    // const data = {
+    //   firstName: "Sanket",
+    //   lastName: "Sonawane",
+    //   username: "SanketSonawane11",
+    //   email:"sanketsona19@gmail.com",
+    //   branch: "EXTC",
+    //   year: "SE",
+    //   websiteName: "Campus Chronicles",
+    // };
 
     const subjects = {
       CS: 
@@ -301,7 +316,7 @@ function Context({children}) {
   return (
     <div> 
         
-        <ProfileData.Provider value={{data, subjects}}>
+        <ProfileData.Provider value={{data, subjects, updateUserData}}>
             {children}
         </ProfileData.Provider>
 

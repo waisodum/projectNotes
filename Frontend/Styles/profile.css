@@ -20,7 +20,7 @@
 {
     width: 100vw;
     height: 6vw;
-    border-bottom: 1px dashed black;
+    /* border-bottom: 1px dashed black; */
     color: black;
     /* font-family: "Kalnia"; */
     display: flex;
@@ -132,7 +132,7 @@
     width: 100%;
     height: 40%;
     border: 1px solid black;
-    padding: 0 0.5vw;
+    padding: 0 1vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -140,18 +140,17 @@
 
 .heroText
 {
-    width: 50%;
+    width: 45%;
     height: 100%;
     /* border: 1px solid black; */
 }
 
 .dayGreet
 {
-    width: 53%;
+    width: 80%;
     height: 4vw;
     display: flex;
     align-items: center;
-    justify-content: space-evenly8
 }
 
 .heroInfo
@@ -167,11 +166,21 @@
     text-align: center;
     font-weight: 600;
     border-radius: 2vw;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .heroInfo:hover
 {
-    border-radius: 1vw;
-    width: 90%;
+    border-radius: 1.5vw;
+    width: 95%;
 }
+
+/* Hero Form */
+
+.updateDetails
+{
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+}
+

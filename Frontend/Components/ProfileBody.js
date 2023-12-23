@@ -66,6 +66,12 @@ function ProfileBody() {
 
             </div>
 
+            <div className='updateDetails'>
+
+                
+
+            </div>
+
         </div>
 
     </div>
