@@ -3,6 +3,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "../Styles/profile.css"
 import { ProfileData } from '@/Helper/Context'
+import gsap from 'gsap'
 
 function ProfileBody() {
 
@@ -10,7 +11,7 @@ function ProfileBody() {
 
     const [newUserData, setNewUserData] = useState({...data});
 
-    const greetings = ["Heyy,", "Hello,", "Kaisan ba,", "Kasa kay?", "হ্যালো,", "બધા સારા?", "ਸਭ ਕੁਝ ਵਧੀਆ?"];
+    const greetings = ["Heyy,", "Hello,", "Kasa kay?"];
 
     const [greet, setGreet] = useState('');
 
@@ -50,8 +51,6 @@ function ProfileBody() {
         updateUserData(newUserData);
     };
 
-    console.log(data);
-
   return (
     <div className='profileBody'>
 
@@ -61,7 +60,7 @@ function ProfileBody() {
 
                 <h1 className='text-[3vw] font-bold'> {greet} {data.firstName} !</h1>
                 <div className='dayGreet'>
-                    <h1 className='text-[2.7vw] font-semibold'> {dayGreet} </h1>
+                    <h1 className='text-[2.7vw] m-[0.5vw] font-semibold'> {dayGreet} </h1>
                     
                     <div className='dayIcon' 
                     style={{ width: '4.5vw', height: '3.5vw',background: `url(${dayGreet === "Good Morning" ? '/morningRes.png' :
@@ -87,18 +86,37 @@ function ProfileBody() {
 
             <div className='updateDetails'>
 
-                <form onSubmit={handleSubmit}>
+                <form className='updateForm'>
 
-                    <input type='text' name="firstName" value={newUserData.firstName} placeholder="First Name" 
-                    onChange={handleChanges} required/>
+                    <div className='formRow'>
 
-                    <input type='text' name="lastName" value={newUserData.lastName} placeholder="Last Name" 
-                    onChange={handleChanges} required/>
+                        <h4 className='fieldName'> First Name </h4>
 
-                    <input type='email' name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={newUserData.email} placeholder="E-mail" 
-                    onChange={handleChanges} required/>
+                        <input type='text' name="firstName" value={newUserData.firstName} placeholder="First Name" 
+                        onChange={handleChanges} required/>
 
-                    <input type='submit' value='Update'/>
+
+                    </div>
+                    
+
+                    <div className='formRow'>
+
+                        <h4 className='fieldName'> Last Name </h4>
+
+                        <input type='text' name="lastName" value={newUserData.lastName} placeholder="Last Name" 
+                        onChange={handleChanges} required/>
+
+                    </div>
+
+                    <div className='formRow'>
+
+                        <h4 className='fieldName'> Email </h4>
+
+                        <input type='email' name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={newUserData.email} placeholder="E-mail" onChange={handleChanges} required/>
+
+                    </div>
+
+                    <button className='updateBtn m-[1vw]' onClick={handleSubmit}>Update</button>
 
                 </form>
 

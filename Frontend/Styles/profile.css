@@ -14,15 +14,19 @@
     padding: 0;
     color: #2a2a2a;
     z-index: 0;
+    overflow: hidden;
 }
 
 .navbar
 {
     width: 100vw;
     height: 6vw;
-    /* border-bottom: 1px dashed black; */
+    position: relative;
+    top: -20%;
+    margin: 0 0 1.5vw 0;
     color: black;
-    /* font-family: "Kalnia"; */
+    background-color: #836cc734;
+    border-radius: 0 0 1vw 1vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +49,7 @@
 
 .profile
 {
-    position: fixed ;
+    position: absolute ;
     top: 1.5vw;
     right: 1.5vw;
     cursor: default;
@@ -130,8 +134,8 @@
 .hero
 {
     width: 100%;
-    height: 40%;
-    border: 1px solid black;
+    height: 50%;
+    /* border: 1px solid black; */
     padding: 0 1vw;
     display: flex;
     align-items: center;
@@ -140,7 +144,7 @@
 
 .heroText
 {
-    width: 45%;
+    width: 40%;
     height: 100%;
     /* border: 1px solid black; */
 }
@@ -155,7 +159,7 @@
 
 .heroInfo
 {
-    width: 100%;
+    width: 45vw;
     height: 5vw;
     background-color: #836cc734;
     margin: 1vw 0;
@@ -182,8 +186,36 @@
 {
     width: 50%;
     height: 100%;
-    border: 1px solid black;
-    padding: 0.5vw;
+    margin: 2vw 0;
+    /* border: 2px solid black; */
+    background: url('/form3.jpg') no-repeat;
+    background-size: cover;
+    border-radius: 2vw;
+}
+
+.updateForm
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fieldName
+{
+    width: fit-content;
+    height: 1vw;
+    padding: 0 0.5vw;
+    font-size: 0.9vw;
+    margin: 0.5vw 0 0 0;
+    position: relative;
+    top: 0.69vw;
+    left: 1.2vw;
+    z-index: 1;
+    background-color: #F0F0F0;
+    border-radius: 0.1vw;
 }
 
 input
@@ -193,8 +225,18 @@ input
     height: 2vw;
     padding: 0 0.5vw;
     font-size: 1.3vw;
-    border-left: 5px solid #5237ac98;
-    border-bottom: 1px solid #5237ac98;
-    border-radius: 0.2vw;
+    border: 2px solid #5337AC;
+    border-radius: 0.3vw;
     margin: 0.5vw;
+}
+
+.updateBtn
+{
+    margin: 1vw;
+    border-radius: 1vw;
+    background-color: #836cc734;
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    font-weight: 600;
 }

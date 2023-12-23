@@ -38,7 +38,8 @@
 
 .profileName
 {
-    width: 9vw;
+    width: fit-content;
+    padding: 0 0.5vw;
     height: 2.7vw;
     border-radius: 1.5vw;
     display: flex;

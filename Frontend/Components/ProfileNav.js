@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "../Styles/profile.css"
 import { ProfileData } from '@/Helper/Context'
 import Link from 'next/link'
@@ -8,7 +8,8 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
 import { HiLogout } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
-
+import gsap from 'gsap';
+import { FcDataConfiguration } from 'react-icons/fc'
 
 function profileNav() {
 
@@ -29,6 +30,15 @@ function profileNav() {
         flexDirection: 'column',
         padding: '0.2vw',
     };
+
+    useEffect(()=>
+    {
+        gsap.to('.navbar',{
+          y: '161.5%',
+          duration: 1,
+          ease: "expo.out",
+        })
+    },[]);
 
   return (
     <div className='navbar'>
