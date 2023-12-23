@@ -8,7 +8,9 @@ function ProfileBody() {
 
     const {data, subjects, updateUserData} = useContext(ProfileData);
 
-    const greetings = ["Heyy,", "Hello,", "Kaisan ba,", "Kasa kay?"];
+    const [newUserData, setNewUserData] = useState({...data});
+
+    const greetings = ["Heyy,", "Hello,", "Kaisan ba,", "Kasa kay?", "হ্যালো,", "બધા સારા?", "ਸਭ ਕੁਝ ਵਧੀਆ?"];
 
     const [greet, setGreet] = useState('');
 
@@ -25,13 +27,30 @@ function ProfileBody() {
             setDayGreet("Good Afternoon");
         else
             setDayGreet("Good Evening");
-    })
+    },[]);
 
     useEffect(()=>
     {
         const index = Math.floor(Math.random() * greetings.length);
         setGreet(greetings[index]);   
-    })
+    },[]);
+
+    const handleChanges = (e)=>
+    {
+        const {name, value} = e.target;
+        setNewUserData(prevData => ({
+            ...prevData,
+            [name] : value,
+        }))
+    };
+
+    const handleSubmit = (e)=>
+    {
+        e.preventDefault();
+        updateUserData(newUserData);
+    };
+
+    console.log(data);
 
   return (
     <div className='profileBody'>
@@ -68,7 +87,20 @@ function ProfileBody() {
 
             <div className='updateDetails'>
 
-                
+                <form onSubmit={handleSubmit}>
+
+                    <input type='text' name="firstName" value={newUserData.firstName} placeholder="First Name" 
+                    onChange={handleChanges} required/>
+
+                    <input type='text' name="lastName" value={newUserData.lastName} placeholder="Last Name" 
+                    onChange={handleChanges} required/>
+
+                    <input type='email' name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={newUserData.email} placeholder="E-mail" 
+                    onChange={handleChanges} required/>
+
+                    <input type='submit' value='Update'/>
+
+                </form>
 
             </div>
 
