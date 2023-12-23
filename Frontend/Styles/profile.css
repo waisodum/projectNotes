@@ -248,11 +248,3 @@ input
     color: aliceblue;
     background-color: #654db5;
 }
-
-@media screen and (max-width: 768px) {
-    .navbar {
-        height: auto;
-        flex-direction: column;
-        padding: 2vw; 
-    }
-}
