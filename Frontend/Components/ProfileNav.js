@@ -10,6 +10,7 @@ import { HiLogout } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
 import gsap from 'gsap';
 import { FcDataConfiguration } from 'react-icons/fc'
+import { delay } from 'lodash'
 
 function profileNav() {
 
@@ -34,9 +35,20 @@ function profileNav() {
     useEffect(()=>
     {
         gsap.to('.navbar',{
-          y: '161.5%',
+          y: '9.6vw',
           duration: 1,
           ease: "expo.out",
+        })
+
+        gsap.to('.logo', {
+          opacity: 1,
+          duration: 0.2,
+          delay: 0.5,
+        })
+
+        gsap.to('.profile', {
+          opacity: 1,
+          duration: 0.2,
         })
     },[]);
 
