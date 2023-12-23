@@ -90,7 +90,7 @@ function ProfileBody() {
 
                     <div className='formRow'>
 
-                        <h4 className='fieldName'> First Name </h4>
+                        <h4 className='field'> First Name </h4>
 
                         <input type='text' name="firstName" value={newUserData.firstName} placeholder="First Name" 
                         onChange={handleChanges} required/>
@@ -101,7 +101,7 @@ function ProfileBody() {
 
                     <div className='formRow'>
 
-                        <h4 className='fieldName'> Last Name </h4>
+                        <h4 className='field'> Last Name </h4>
 
                         <input type='text' name="lastName" value={newUserData.lastName} placeholder="Last Name" 
                         onChange={handleChanges} required/>
@@ -110,7 +110,7 @@ function ProfileBody() {
 
                     <div className='formRow'>
 
-                        <h4 className='fieldName'> Email </h4>
+                        <h4 className='field'> Email </h4>
 
                         <input type='email' name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={newUserData.email} placeholder="E-mail" onChange={handleChanges} required/>
 
