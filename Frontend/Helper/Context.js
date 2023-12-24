@@ -1,5 +1,6 @@
 'use client'
 
+import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react'
 export const ProfileData = createContext();
 
@@ -18,14 +19,52 @@ function Context({children}) {
      websiteName: "Campus Chronicles",
   });
 
+  // const updateUserData = async (newData) =>
+  // {
+  //   try {
+  //     const response = await axios.get('http://localhost:8000', newData,  {
+  //     headers: {
+  //       Authorization: 'Bearer ' + localStorage.getItem("Token"),
+  //     },
+  //   });
 
+  //   if(response.status == 200)
+  //   {
+  //     setdata(newData);
+  //     console.log("Success"); 
+  //     console.log(data.firstName);
+  //   }
 
-  const updateUserData = (newData)=>
-  {
-    setdata({newData});
-  }
+  //   else
+  //   {
+  //     console.log("error");
+  //   }
 
-  
+  //   }
+
+  //   catch (error) {
+  //     if (error.response) {
+  //       // The request was made and the server responded with a status code
+  //       console.log(error.response.data); // Response data from the server
+  //       console.log(error.response.status); // Status code
+  //       console.log(error.response.headers); // Response headers
+  //     } else if (error.request) {
+  //       // The request was made but no response was received
+  //       console.log(error.request);
+  //     } else {
+  //       // Something happened in setting up the request that triggered an error
+  //       console.log('Error', error.message);
+  //     }
+  //     console.log(error.config); // Config used to make the request
+  //   }
+  // }
+
+    const updateUserData = (newData)=>
+    {
+      setdata(newData);
+      console.log(data);
+    }
+
     const subjects = {
       Comps: 
       {
