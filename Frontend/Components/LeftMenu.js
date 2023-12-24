@@ -67,7 +67,7 @@ function Navbar() {
     <div className="leftMenu">
       <div className="logo">
         <Link href="/">
-          <h1 className="cNone">{data.websiteName}</h1>
+          <h1 className="cNone">Campus Chronicles</h1>
         </Link>{" "}
         {/* Website ka naam  */}
       </div>

@@ -15,7 +15,7 @@
     padding: 0.5vw 1vw;
     border-radius: 0 0 1vw 0;
     opacity: 0;
-    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,18 +34,19 @@
 {
     position: fixed ;
     top: 1vw;
-  
 }
 
 .profileName
 {
-    width: 9vw;
+    width: fit-content;
+    padding: 0 0.5vw;
     height: 2.7vw;
-    border-radius: 0.5vw 0.5vw 0 0;
+    border-radius: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: #ffffff31;
+    transition: all 0.2s ease-out;
 }
 
 .dropdown
@@ -83,4 +84,18 @@
     color: #fff;
     margin: 0.3vw 0 ;
     border-radius: 0.5vw;
+    transition: all 0.2s ease-out;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
+
+}
+
+.menuButton:hover
+{
+    background-color: #2a2a2a72;
+}
+
+.menuButton:active
+{
+    background-color: #fff;
+    color: #2a2a2a;
 }

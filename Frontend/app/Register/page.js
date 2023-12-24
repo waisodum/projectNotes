@@ -5,7 +5,6 @@ import '../../Styles/signUpPage.css'
 import SignUpForm from '@/Components/SignUpForm'
 import gsap from 'gsap'
 
-
 function Register() {
   const [text, setText] = useState("Sign Up");
 
@@ -44,7 +43,11 @@ function Register() {
       
       <h1 className='verticalText' onMouseEnter={changeText} onMouseLeave={changeAgain}>{text}</h1>
 
-      <SignUpForm />
+      <div className='formS'>
+
+        <SignUpForm/>
+
+      </div>
 
     </div>
   )

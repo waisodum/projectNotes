@@ -12,7 +12,6 @@ console.log(err);
 }
 connecting();
 
-
 const Schema = mongoose.Schema;
 
 // Define the Post schema

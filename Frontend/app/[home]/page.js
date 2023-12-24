@@ -37,7 +37,9 @@ const Page = () => {
 
   if (loading) {
     // Render loading state or spinner here
-    return <div>Loading...</div>;
+    return <div class="reload-container">
+    <div class="reload-icon"></div>
+  </div>;
   }
 
   return (

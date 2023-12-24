@@ -11,11 +11,11 @@
     left: 0;
     height: 100vh;
     background-color: #5337AC;
-    border-radius: 0 0 1vw 0;
+    /* border-radius: 0 0 1vw 0; */
     padding: 1vw;
     color: aliceblue;
     opacity: 0;
-    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
 }
 
 .logo
@@ -32,7 +32,7 @@
 
 .cNone
 {
-    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
 }
 
 .restMenu
@@ -54,13 +54,13 @@
 
 .sem
 {
-    width: 100%;
+    width: 102.5%;
     height: 2.5vw;
     font-size: 1.2vw;
     margin: 0.5vw;
     display: flex;
     align-items: center;
-    justify-content: center;
+    border-bottom: 2px solid aliceblue;
 }
 
 .semToggle
@@ -103,7 +103,7 @@
 {
     background-color: #ffffff26;
     border-radius: 1.8vw 0 0 1.8vw;
-    scale: 0.995;
+    scale: 0.992;
 }
 
 .subjectNames:active

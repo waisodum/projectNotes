@@ -8,7 +8,8 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
 import { HiLogout } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
-
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 
 function Navbar() {
@@ -16,7 +17,7 @@ function Navbar() {
   const {data, subjects} = useContext(ProfileData);
 
   const [menu, setMenu] = useState(false);
-
+const router=useRouter()
   const dropdown = {
     width: '9vw',
     borderRadius: '0 0 0.8vw 0.8vw',
@@ -44,6 +45,10 @@ function Navbar() {
     })
   })
 
+  function logout() {
+    localStorage.removeItem("Token");
+    router.push('/')
+  }
   return (  
     <div className='navbar'>
 
@@ -59,24 +64,29 @@ function Navbar() {
         
         <div className='profile'>
 
-          <div className='profileName' onClick={()=>{setMenu(!menu)}}>
+          <div className='profileName' onClick={()=>{setMenu(!menu)}} 
+          style={menu? {borderRadius: '0.5vw 0.5vw 0 0'} : {backgroundColor: '#ffffff31'}}>
             <div className='profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-slate-900'><FaCircleUser /></div>
             <h5 className='text-[1.3vw] m-[0.2vw]'> {firstName} </h5>
-            <div className='downArrow text-[1.1vw] mt-[0.3vw] inline-block w-[1.5vw] text-slate-900' style={menu? {transform: 'rotate(180deg)'} : {}}><FaAngleDown /></div>
+            <div className='downArrow text-[1.1vw] mt-[0.3vw] inline-block w-[1.5vw] text-slate-900' style={menu? {transform: 'rotate(180deg)'} : {}}><FaAngleDown 
+            style={
+              menu? {transform: 'translateX(5px)'}: {}
+            }
+            /></div>
           </div>
 
           <div className='dropdown'
           style={menu ? dropdown : {display: 'none'}}>
 
-            <div className='menuButton'>
+            <Link href='/Profile' className='menuButton'>
               <h6 className='menuText'>Profile</h6>
               <div className='mIcon'><MdArrowForwardIos /></div>
-            </div>
+            </Link>
 
-            <div className='menuButton'>
-              <h6 className='menuText'>Logout</h6>
+            <button onClick={logout} className='menuButton'>
+              <h5 className='menuText'>Logout</h5>
               <div className='mIcon'><HiLogout /></div>
-            </div>
+            </button>
 
           </div>
 

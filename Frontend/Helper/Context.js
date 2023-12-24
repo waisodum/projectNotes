@@ -5,10 +5,27 @@ export const ProfileData = createContext();
 
 function Context({children}) {
 
-    const [data, setdata] = useState({})
+  const [data, setdata] = useState({
+    // firstName: "Sanket",
+    // lastName: "Sonawane",
+    // username: "SanketSonawane11",
+    // email:"sanketsona19@gmail.com",
+    // branch: "EXTC",
+    // year: "SE",
+    // uploadCount: 11,
+    // likes: 29,
+    // downloads: 5,
+     websiteName: "Campus Chronicles",
+  });
 
 
 
+  const updateUserData = (newData)=>
+  {
+    setdata({newData});
+  }
+
+  
     const subjects = {
       Comps: 
       {
@@ -295,7 +312,7 @@ function Context({children}) {
   return (
     <div> 
         
-        <ProfileData.Provider value={{data, subjects,setdata}}>
+        <ProfileData.Provider value={{data, subjects,setdata,updateUserData}}>
             {children}
         </ProfileData.Provider>
 
