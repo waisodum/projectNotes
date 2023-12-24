@@ -5,7 +5,14 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 function SignUpForm() {
-
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [branch, setBranch] = useState('');
+  const [username, setUsername] = useState('');
+  const [year, setYear] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router =useRouter()
   const changeBranch = (bra) => {
     setBranch(bra.target.value);
   }
@@ -23,6 +30,7 @@ function SignUpForm() {
     var userData = {
       firstname: firstName,
       lasname:lastName,
+      email,
       branch,
       year,
       username,
@@ -30,7 +38,6 @@ function SignUpForm() {
     };
 try
 {    var GG = await axios.post("http://localhost:8000/Register", userData);
-
   
 if (!GG.data.success) {
   setUsername("");
@@ -47,11 +54,12 @@ else {
   setUsername("");
   setBranch("");
   setYear("");
-  
+  return null
 }
 }  
 catch(err){
 alert('Theres some error in server plz contact us')
+console.log(err);
   return null;
 }
 
@@ -123,6 +131,15 @@ alert('Theres some error in server plz contact us')
           </div>
           
         </div>
+        <div className='field1'>
+
+<h4 className='fieldName'>email: </h4> <input className='fieldValue' value={email} type='text' placeholder='Set a new username' onChange={async (ip)=>
+{
+  setEmail(ip.target.value);
+
+}} required/>
+
+</div>
 
           <div className='field1'>
 
