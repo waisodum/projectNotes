@@ -139,15 +139,15 @@ function ProfileBody() {
                 <div className='uploadData'>
 
                     <div className='dataRow'>
+                        <h4>Likes :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.likes} </h4>
+                    </div>
+
+                    <div className='dataRow'>
                         <h4>Notes Uploaded :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.uploadCount} </h4>
                     </div>
 
                     <div className='dataRow'>
-                        <h4>Highest Download :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.highestDownload} </h4>
-                    </div>
-
-                    <div className='dataRow'>
-                        <h4>Highest Likes :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.highestLikes} </h4>
+                        <h4>Downloads :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.downloads} </h4>
                     </div>
 
                 </div>

@@ -13,8 +13,8 @@ function Context({children}) {
     branch: "EXTC",
     year: "SE",
     uploadCount: 11,
-    highestLikes: 29,
-    highestDownload: 5,
+    likes: 29,
+    downloads: 5,
     websiteName: "Campus Chronicles",
   });
 
