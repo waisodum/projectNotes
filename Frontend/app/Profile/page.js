@@ -22,7 +22,9 @@ function page() {
       try {
         const token = localStorage.getItem('Token');
         const response = await axios.get('http://localhost:8000/login/protected', {
-          headers: { Authorization: token , 'Cache-Control': 'no-store'}
+          headers: { Authorization: token , 'Cache-Control': 'no-store',
+          'Pragma': 'no-cache',
+          'Expires': '0',}
         });
 
         setdata(response.data.UserData);
