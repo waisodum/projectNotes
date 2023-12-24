@@ -7,10 +7,10 @@ function Context({children}) {
 
     const [data, setdata] = useState({})
 
- 
+
 
     const subjects = {
-      CS: 
+      Comps: 
       {
         SE: 
         {
