@@ -34,11 +34,11 @@ function profileNav() {
 
     useEffect(()=>
     {
-        gsap.to('.navbar',{
-          y: '9.6vw',
-          duration: 1,
-          ease: "expo.out",
-        })
+        // gsap.to('.navbar',{
+        //   y: '9.6vw',
+        //   duration: 1,
+        //   ease: "expo.out",
+        // })
 
         gsap.to('.logo', {
           opacity: 1,

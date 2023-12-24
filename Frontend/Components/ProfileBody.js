@@ -3,11 +3,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "../Styles/profile.css"
 import { ProfileData } from '@/Helper/Context'
-import gsap from 'gsap'
+// import gsap from 'gsap'
+import Image from 'next/image';
+import Link from 'next/link';
+
 
 function ProfileBody() {
 
-    const {data, subjects, updateUserData} = useContext(ProfileData);
+    const {data, updateUserData} = useContext(ProfileData);
 
     const [newUserData, setNewUserData] = useState({...data});
 
@@ -63,11 +66,16 @@ function ProfileBody() {
                     <h1 className='text-[2.7vw] m-[0.5vw] font-semibold'> {dayGreet} </h1>
                     
                     <div className='dayIcon' 
-                    style={{ width: '4.5vw', height: '3.5vw',background: `url(${dayGreet === "Good Morning" ? '/morningRes.png' :
-                    dayGreet === "Good Afternoon" ? '/afternoon.png' :
-                    '/evening.png'}) no-repeat`, 
-                    backgroundSize: 'contain'}}
-                    ></div>
+                    // style={{ width: '4.5vw', height: '3.5vw',background: `url(${dayGreet === "Good Morning" ? '/morningRes.png' :
+                    // dayGreet === "Good Afternoon" ? '/afternoon.png' :
+                    // '/evening.png'}) no-repeat`, 
+                    // backgroundSize: 'contain'}}
+                    >
+                        
+                        <Image src={dayGreet === "Good Morning" ? '/morningRes.png' : dayGreet === "Good Afternoon" ? '/afternoon.png' : '/evening.png'} 
+                        alt='Morning' height={45} width={45} />
+
+                    </div>
 
                 </div>
 
@@ -124,14 +132,35 @@ function ProfileBody() {
 
         </div>
 
+        <div className='updateSection'>
+
+            <div className='uploadCard'>
+                <h1 className='text-[1.45vw] font-bold'> Your Data </h1>
+                <div className='uploadData'>
+
+                    <div className='dataRow'>
+                        <h4>Notes Uploaded :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.uploadCount} </h4>
+                    </div>
+
+                    <div className='dataRow'>
+                        <h4>Highest Download :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.highestDownload} </h4>
+                    </div>
+
+                    <div className='dataRow'>
+                        <h4>Highest Likes :&nbsp;</h4><h4 className='text-[1.3vw] font-bold'> {data.highestLikes} </h4>
+                    </div>
+
+                </div>
+
+                <Link href='/uploads' className='uploadsBtn'>
+                    Your Uploads
+                </Link>
+            </div>
+
+        </div>
+
     </div>
   )
 }
 
 export default ProfileBody
-
-
-// style={{ width: '5vw', height: '3.9vw',background: `url(${dayGreet === "Good Morning" ? '/morning.png' :
-                    // dayGreet === "Good Afternoon" ? '/morning.png' :
-                    // '/evening.png'}) no-repeat`, 
-                    // backgroundSize: 'contain'}}

@@ -21,8 +21,8 @@
 {
     width: 100vw;
     height: 5.5vw;
-    position: relative;
-    top: -20%;
+    /* position: relative;
+    top: -20%; */
     color: black;
     background-color: #836cc734;
     border-radius: 0 0 1vw 1vw;
@@ -50,6 +50,7 @@
 {
     position: fixed;
     top: 1.5vw;
+    width: fit-content;
     opacity: 0;
     right: 1.5vw;
     cursor: default;
@@ -57,7 +58,8 @@
 
 .profileName
 {
-    width: 9vw;
+    width: fit-content;
+    padding: 0 0.5vw;
     height: 2.7vw;
     border-radius: 1.5vw;
     display: flex;
@@ -168,13 +170,12 @@
     font-size: 1vw;
     font-weight: 600;
     border-radius: 2vw;
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 .heroInfo:hover
 {
-    border-radius: 1.5vw;
-    width: 95%;
+    border-radius: 1.7vw;
 }
 
 /* Hero Form */
@@ -184,7 +185,7 @@
     width: 50%;
     height: 20vw;
     margin: 2vw 0;
-    background: url('/form3.jpg') no-repeat;
+    background: url('/form1.jpg') no-repeat;
     background-size: cover;
     border-radius: 1vw;
 }
@@ -202,7 +203,7 @@
 .field
 {
     width: fit-content;
-    height: 1vw;
+    height: 1.2vw;
     padding: 0 0.5vw;
     font-size: 0.9vw;
     margin: 0.5vw 0 0 0;
@@ -210,7 +211,7 @@
     top: 0.69vw;
     left: 1.2vw;
     z-index: 1;
-    background-color: #F0F0F0;
+    background-color: #DECDEE;
     border-radius: 0.1vw;
 }
 
@@ -230,7 +231,7 @@ input
 {
     margin: 1vw;
     border-radius: 1vw;
-    background-color: #836cc734;
+    background-color: #DECDEE;
     width: 7vw;
     height: 2.5vw;
     font-size: 1.2vw;
@@ -247,4 +248,68 @@ input
 {
     color: aliceblue;
     background-color: #654db5;
+}
+
+/* Uppdate Section */
+
+.updateSection
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+}
+
+.uploadCard
+{
+    width: 20vw;
+    height: 18vw;
+    border-radius: 2vw;
+    background-color: #836cc734;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.uploadData
+{
+    width: 90%;
+    height: 9vw;
+    padding: 0.5vw 0;
+}
+
+.dataRow
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.1vw;
+    margin: 0.5vw 0;
+    font-weight: 500;
+}
+
+.uploadsBtn
+{
+    font-size: 1.2vw;
+    background-color: #2a2a2a;
+    color: aliceblue;
+    border-radius: 1vw;
+    cursor: default;
+    padding: 0.3vw 1vw;
+    transition: all 0.2s ease-out;
+}
+
+.uploadsBtn:hover
+{
+    background-color: transparent;
+    border: 2px solid #2a2a2a;
+    color: #2a2a2a;
+}
+
+.uploadsBtn:active
+{
+    background-color: aliceblue;
+    color: #2a2a2a;
 }

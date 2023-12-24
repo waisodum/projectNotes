@@ -12,6 +12,9 @@ function Context({children}) {
     email:"sanketsona19@gmail.com",
     branch: "EXTC",
     year: "SE",
+    uploadCount: 11,
+    highestLikes: 29,
+    highestDownload: 5,
     websiteName: "Campus Chronicles",
   });
 
