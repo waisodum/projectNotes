@@ -6,7 +6,7 @@ import "../Styles/leftMenu.css"
 import Link from 'next/link'
 import gsap from 'gsap'
 
-function Navbar() {
+function LeftMenu() {
 
   const {data, subjects} = useContext(ProfileData);
 
@@ -100,4 +100,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default LeftMenu

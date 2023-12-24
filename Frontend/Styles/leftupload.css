@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.leftupload
+{
+    /* width: 300px; */
+    width: 22vw;
+    z-index: 0;  
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    background-color: #5337AC;
+    border-radius: 0 0 1vw 0;
+    padding: 1vw;
+    color: aliceblue;
+    opacity: 0;
+    cursor: url(../public/icons8-circle-40-20x20.png), auto;
+}
+/* .logo
+{
+    font-size: 2.5vw;
+    font-weight: 600;
+    color: #f0f8ff;
+    padding: 1vw;
+    line-height: 2.3vw;
+    font-family: "Kalnia";
+    opacity: 0;
+    margin: 0 0 1.8vw 0;
+} */

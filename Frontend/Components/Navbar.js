@@ -8,6 +8,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa";
 import { HiLogout } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
+import Link from 'next/link';
 
 
 
@@ -67,11 +68,20 @@ function Navbar() {
 
           <div className='dropdown'
           style={menu ? dropdown : {display: 'none'}}>
-
+            
             <div className='menuButton'>
+            <Link href="/profile">
               <h6 className='menuText'>Profile</h6>
+              </Link>
               <div className='mIcon'><MdArrowForwardIos /></div>
             </div>
+            <div className='menuButton'>
+            <Link href="/Home">
+              <h6 className='menuText'>Home</h6>
+              </Link>
+              <div className='mIcon'><MdArrowForwardIos /></div>
+            </div>
+            
 
             <div className='menuButton'>
               <h6 className='menuText'>Logout</h6>
