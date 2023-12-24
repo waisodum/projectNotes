@@ -46,7 +46,7 @@ if (!GG.data.success) {
   return null
 } 
 else {
-  router.push('/')
+  router.push('/notesPage')
   setEmail("");
   setFirstName("");
   setLastName("");
