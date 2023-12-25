@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var createUser = require("../models/userSchema").User;
 const { compareSync } = require("bcrypt");
+
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 router.use(passport.initialize());

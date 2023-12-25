@@ -1,4 +1,4 @@
-
+'use client'
 import { data } from 'autoprefixer'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
@@ -59,7 +59,6 @@ else {
 }  
 catch(err){
 alert('Theres some error in server plz contact us')
-console.log(err);
   return null;
 }
 
