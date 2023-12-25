@@ -13,8 +13,11 @@ import { useRouter } from 'next/navigation'
 
 function profileNav() {
 
-    const {data, subjects} = useContext(ProfileData);
-const router =useRouter()
+    const {data, subjects, updateUserData} = useContext(ProfileData);
+
+    const [userData, setUserData] = useState(data);
+
+    const router =useRouter()
     const [menu, setMenu] = useState(false);
 
     const dropdown = {
@@ -52,6 +55,8 @@ const router =useRouter()
     },[]);
     function logout() {
       localStorage.removeItem("Token");
+      updateUserData({});
+      setUserData({});
       router.push('/')
     }
   return (

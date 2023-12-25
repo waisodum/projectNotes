@@ -29,7 +29,7 @@ function page() {
 
         setdata(response.data.UserData);
       } catch (error) {
-        // Handle error, maybe redirect to login page
+
         // console.error('Error fetching data:', error);
          router.push('/');
       } finally {
@@ -41,7 +41,7 @@ function page() {
   }, []);
 
   if (loading) {
-    // Render loading state or spinner here
+
     return<div class="reload-container">
     <div class="reload-icon"></div>
   </div>

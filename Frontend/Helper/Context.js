@@ -62,7 +62,7 @@ function Context({children}) {
     const updateUserData = (newData)=>
     {
       setdata(newData);
-      console.log(data);
+      // console.log(data);
     }
 
     const subjects = {
