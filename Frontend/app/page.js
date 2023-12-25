@@ -7,10 +7,13 @@ import Link from 'next/link'
 import { ProfileData } from '@/Helper/Context'
 import "../Styles/globals.css"
 import gsap from 'gsap'
+import { useRouter } from 'next/navigation'
+
 
 function Home() {
 
   const {data, subjects} = useContext(ProfileData);
+  const router = useRouter();
 
   useEffect(()=>
   {
@@ -21,6 +24,13 @@ function Home() {
       ease: "expo.out",
     })
   }, []);
+
+  useEffect(() => {
+    if (data.firstName) {
+      router.push('/notesSharing');
+      console.log(data.firstName);
+    }
+  }, [data.firstName, router]);
 
   return (
     <div className='body'>

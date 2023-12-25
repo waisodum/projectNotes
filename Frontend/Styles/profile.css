@@ -21,8 +21,7 @@
 {
     width: 100vw;
     height: 5.5vw;
-    /* position: relative;
-    top: -20%; */
+    font-size: 1.1vw;
     color: black;
     background-color: #836cc734;
     border-radius: 0 0 1vw 1vw;
@@ -336,3 +335,22 @@ input
     100% { transform: rotate(360deg); }
   }
   
+  .uploadSpace
+  {
+    width: 65vw;
+    height: 18vw;
+    background-color: #836cc734;
+    border-radius: 2vw;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.uploadColumn
+{
+    width: 50%;
+    height: 100%;
+    /* border: 2px dashed #2a2a2a8c; */
+    border-radius: 1vw;
+}

@@ -1,12 +1,12 @@
-// ... (imports remain the same)
+
 'use client'
-import Navbar from "@/Components/Navbar";
 import LeftMenu from "@/Components/LeftMenu";
 import { ProfileData } from "@/Helper/Context";
 import { useContext, useEffect,useState } from "react";
 import "../../Styles/notesPage.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Navbar from "@/Components/Navbar";
 
 
 const Page = () => {
@@ -46,7 +46,7 @@ const Page = () => {
 
   return (
     <div className="notesMain">
-      <Navbar />
+      {data.branch ? <Navbar /> : null}
       {data.branch ? <LeftMenu /> : null}
     </div>
   );

@@ -12,7 +12,8 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router =useRouter()
+  const router =useRouter();
+
   const changeBranch = (bra) => {
     setBranch(bra.target.value);
   }
@@ -58,7 +59,7 @@ else {
 }
 }  
 catch(err){
-alert('Theres some error in server plz contact us')
+alert('There is some error in server. Plz contact us')
 console.log(err);
   return null;
 }
