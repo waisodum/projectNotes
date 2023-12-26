@@ -416,4 +416,11 @@ input
     margin: 0.2vw;
     z-index: 0;
     cursor: default;
+    transition: all 0.2s ease-out ;
+}
+
+.inputF:focus
+{
+    border-color: aliceblue;
+    scale: 1.05;
 }
