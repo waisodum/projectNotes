@@ -4,6 +4,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { supabase } from '../utils/spuabase'; 
 import { ProfileData } from '@/Helper/Context';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 const UploadArea = () => {
@@ -24,11 +26,14 @@ const UploadArea = () => {
 
   const handleFileUpload = async () => {
     if (selectedFile) {
+
+      const id = uuidv4();
       
       const metadata = {
         firstName : data.firstName, 
         lastName : data.lastName,
         branch : branch,
+        username: data.username,
         year : year,
         sem: sNo,
         subject: subjectName,
@@ -37,9 +42,13 @@ const UploadArea = () => {
       console.log(metadata);
 
       try {
+
+        const originalFileName = selectedFile.name;
+        const uploadedFileName = `${originalFileName}_${id}`;
+
         const { data, error } = await supabase.storage
           .from('Notes Bucket')
-          .upload(selectedFile.name, selectedFile, { metadata });
+          .upload(uploadedFileName, selectedFile, { metadata });
 
         if (error) {
           console.error('Error uploading file:', error);
