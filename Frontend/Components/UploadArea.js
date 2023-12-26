@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { supabase } from '../utils/spuabase'; 
 import { ProfileData } from '@/Helper/Context';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 const UploadArea = () => {
@@ -15,6 +16,7 @@ const UploadArea = () => {
   const year = data.year;
   const [bucketCreated, setBucketCreated] = useState(false); 
   const [selectedFile, setSelectedFile] = useState(null); 
+  const [uploadedNote, setUploadedNote] = useState([]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -36,8 +38,8 @@ const UploadArea = () => {
 
       try {
         const { data, error } = await supabase.storage
-          .from('NotesBucket')
-          .upload(selectedFile.name, selectedFile);
+          .from('Notes Bucket')
+          .upload(selectedFile.name, selectedFile, { metadata });
 
         if (error) {
           console.error('Error uploading file:', error);
@@ -51,6 +53,7 @@ const UploadArea = () => {
       console.error('No file selected');
     }
   };
+
 
   // useEffect(() => {
   //   const createStorageBucket = async () => {
