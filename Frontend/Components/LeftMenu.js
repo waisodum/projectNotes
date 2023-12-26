@@ -40,6 +40,7 @@ function Navbar() {
       scale: 1.1,
     });
   }, []);
+  
   const semChange = () => {
     if (sem === "Even") {
       setSem("Odd");
