@@ -5,13 +5,14 @@ import { supabase } from '../utils/spuabase';
 import { ProfileData } from '@/Helper/Context';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { v4 as uuidv4 } from 'uuid';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const UploadArea = () => {
 
   const {data, subjects, updateUserData} = useContext(ProfileData);
-  const [subjectName, setSubjectName] = useState('');
   const [sem, setSem] = useState("Odd");
   const [sNo, setSNo] = useState(1);
   const branch = data.branch;
@@ -19,6 +20,7 @@ const UploadArea = () => {
   const [bucketCreated, setBucketCreated] = useState(false); 
   const [selectedFile, setSelectedFile] = useState(null); 
   const [uploadedNote, setUploadedNote] = useState([]);
+  const [subjectName, setSubjectName] = useState(subjects[branch][year][1][0]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -28,6 +30,8 @@ const UploadArea = () => {
     if (selectedFile) {
 
       const id = uuidv4();
+
+      toast("Uploading... \nPlease Wait");
       
       const metadata = {
         firstName : data.firstName, 
@@ -44,8 +48,9 @@ const UploadArea = () => {
 
       try {
 
+        const path = `${branch}/${subjectName}`;
         const originalFileName = selectedFile.name;
-        const uploadedFileName = `${originalFileName}_${id}`;
+        const uploadedFileName = `${path}/${originalFileName}_${id}`;
 
         const { data, error } = await supabase.storage
           .from('Notes Bucket')
@@ -53,14 +58,19 @@ const UploadArea = () => {
 
         if (error) {
           console.error('Error uploading file:', error);
+          toast("Unable to Upload:", error);
         } else {
           console.log('File uploaded successfully:', data);
+          toast("Uploaded Successfully");
+          setSelectedFile(null);
         }
       } catch (error) {
+        toast("Error Uploading file, please try again ::", error);
         console.error('Error uploading file:', error);
       }
     } else {
       console.error('No file selected');
+      toast("Please select a file to upload");
     }
   };
 
@@ -129,6 +139,7 @@ const UploadArea = () => {
       </div>
 
       <button className='uploadsBtn' onClick={handleFileUpload}>Upload File</button>
+      <ToastContainer />
 
     </button>
   );
