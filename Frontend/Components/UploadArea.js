@@ -37,6 +37,7 @@ const UploadArea = () => {
         year : year,
         sem: sNo,
         subject: subjectName,
+        id: id,
       }
 
       console.log(metadata);
