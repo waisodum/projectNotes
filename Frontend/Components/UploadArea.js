@@ -64,30 +64,6 @@ const UploadArea = () => {
     }
   };
 
-
-  // useEffect(() => {
-  //   const createStorageBucket = async () => {
-  //     try {
-  //       const { data, error } = await supabase.storage.createBucket('NotesBucket', {
-  //         public: true, 
-  //         maxFileSize: '50MB', 
-  //       });
-
-  //       if (error) {
-  //         console.error('Error creating storage bucket:', error);
-  //       } else {
-  //         console.log('Storage bucket created:', data);
-  //         setBucketCreated(true); 
-  //       }
-  //     } catch (error) {
-  //       console.error('Error creating storage bucket:', error);
-  //     }
-  //   };
-
-  //   createStorageBucket(); 
-  // }, []); 
-
-
   const subjectsAvailable = subjects[branch][year][sNo];
 
   const handleSem = ()=>
@@ -106,55 +82,55 @@ const UploadArea = () => {
 
 
   return (
-    <div className='uploadSpace'>
+    <button className='uploadSpace'>
       
-    <div className='topLevel'>
-      <div className='uploadColumn'>
-        <div className='fileDrop'>
-          <h1 className='text-[1.5vw] font-bold'>Upload Notes here</h1>
-          <input
-            type='file'
-            accept='application/pdf'
-            className='uploader'
-            onChange={handleFileChange}
-          />
+      <div className='topLevel'>
+        <div className='uploadColumn'>
+          <div className='fileDrop'>
+            <h1 className='text-[1.5vw] font-bold'>Upload Notes here</h1>
+            <input
+              type='file'
+              accept='application/pdf'
+              className='uploader'
+              onChange={handleFileChange}
+            />
+          </div>
+        </div>
+
+        <div className='uploadColumn'>
+
+          <form className='uploadForm'>
+
+            <div className='uFormRow py-[1vw]'>
+
+              <h4 className='uploadField'> Subject Name </h4>
+
+              <select className='inputF' onChange={(e) => {setSubjectName(e.target.value)}} required>
+              {subjectsAvailable.map((subject, index) => (
+                <option value={subject} key={index}>{subject}</option>
+              ))}
+              </select>
+
+            </div>
+                      
+
+            <div className='uFormRow'>
+
+              <h4 className='uploadField'> Semester </h4>
+              <div className='inputF flex items-center justify-center' onClick={handleSem}>
+                {sem} Semester  
+              </div>    
+
+            </div>
+
+          </form>
+
         </div>
       </div>
 
-      <div className='uploadColumn'>
+      <button className='uploadsBtn' onClick={handleFileUpload}>Upload File</button>
 
-        <form className='uploadForm'>
-
-          <div className='uFormRow py-[1vw]'>
-
-            <h4 className='uploadField'> Subject Name </h4>
-
-            <select className='inputF' onChange={(e) => {setSubjectName(e.target.value)}} required>
-            {subjectsAvailable.map((subject, index) => (
-              <option value={subject} key={index}>{subject}</option>
-            ))}
-            </select>
-
-          </div>
-                    
-
-          <div className='uFormRow'>
-
-            <h4 className='uploadField'> Semester </h4>
-            <div className='inputF flex items-center justify-center' onClick={handleSem}>
-              {sem} Semester  
-            </div>    
-
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-
-    <button className='uploadsBtn' onClick={handleFileUpload}>Upload File</button>
-
-    </div>
+    </button>
   );
 };
 

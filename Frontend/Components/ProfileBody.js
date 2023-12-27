@@ -135,7 +135,7 @@ function ProfileBody() {
 
         <div className='updateSection'>
 
-            <div className='uploadCard'>
+            <button className='uploadCard'>
                 <h1 className='text-[1.45vw] font-bold'> Your Data </h1>
                 <div className='uploadData'>
 
@@ -156,7 +156,7 @@ function ProfileBody() {
                 <Link href='/uploads' className='uploadsBtn'>
                     Your Uploads
                 </Link>
-            </div>
+            </button>
 
             <UploadArea />
 
