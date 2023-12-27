@@ -31,7 +31,9 @@ const UploadArea = () => {
 
       const id = uuidv4();
 
-      toast("Uploading... \nPlease Wait");
+      toast("Uploading... \nPlease Wait", {
+            icon: '⏳',
+          });
       
       const metadata = {
         firstName : data.firstName, 
@@ -58,19 +60,29 @@ const UploadArea = () => {
 
         if (error) {
           console.error('Error uploading file:', error);
-          toast("Unable to Upload:", error);
+          toast.error("Unable to Upload:", error, {
+            icon: '👎🏼'
+          });
         } else {
           console.log('File uploaded successfully:', data);
-          toast("Uploaded Successfully");
+          toast.success("Uploaded Successfully", {
+            icon: '🍻',
+          });
           setSelectedFile(null);
         }
       } catch (error) {
-        toast("Error Uploading file, please try again ::", error);
+        toast.error("Error Uploading file, please try again ::", error, {
+          icon: '👎🏼'
+        });
         console.error('Error uploading file:', error);
       }
     } else {
-      console.error('No file selected');
-      toast("Please select a file to upload");
+      console.error('No file selected', {
+        icon: '👎🏼'
+      });
+      toast.warn("Please select a file to upload", {
+        icon: ''
+      });
     }
   };
 
