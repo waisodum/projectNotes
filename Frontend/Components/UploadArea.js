@@ -21,6 +21,7 @@ const UploadArea = () => {
   const [selectedFile, setSelectedFile] = useState(null); 
   const [uploadedNote, setUploadedNote] = useState([]);
   const [subjectName, setSubjectName] = useState(subjects[branch][year][1][0]);
+  const [mainPath, setMainPath] = useState('');
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -50,9 +51,10 @@ const UploadArea = () => {
 
       try {
 
-        const path = `${branch}/${subjectName}`;
+        const path = `${branch}/${year}/${subjectName}`;
         const originalFileName = selectedFile.name;
-        const uploadedFileName = `${path}/${originalFileName}_${id}`;
+        const uploadedFileName = `${path}/${id}_${originalFileName}`;
+        console.log(uploadedFileName);
 
         const { data, error } = await supabase.storage
           .from('Notes Bucket')
@@ -65,6 +67,7 @@ const UploadArea = () => {
           });
         } else {
           console.log('File uploaded successfully:', data);
+          console.log(data.id);
           toast.success("Uploaded Successfully", {
             icon: '🍻',
           });
@@ -85,6 +88,39 @@ const UploadArea = () => {
       });
     }
   };
+
+  // const [files, setFiles] = useState([]);
+
+  // useEffect(() => {
+  
+  // const check = async ()=>
+  // {
+
+  //   try{
+  //     const {data, error} = await supabase.storage.from('Notes Bucket').list(mainPath);
+  //     if (error)
+  //     {
+  //       console.log("No!!")
+  //     }
+
+  //     else{
+  //       setFiles(data);
+  //       console.log(data);
+  //     }
+  //   }
+
+  //   catch(error)
+  //   {
+  //     console.log("Nhi hua");
+  //   }
+  // }
+
+  // check();
+    
+  // }, []);
+  
+
+  
 
   const subjectsAvailable = subjects[branch][year][sNo];
 
