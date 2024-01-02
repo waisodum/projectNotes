@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uploadthing/react": "^6.0.2",
     "axios": "^1.6.2",
+    "cloudinary": "^1.41.1",
     "gsap": "^3.12.3",
     "icons": "^1.0.0",
     "lodash": "^4.17.21",
@@ -19,8 +21,11 @@
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@types/node": "20.10.5",
+    "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "5.3.3"
   }
 }

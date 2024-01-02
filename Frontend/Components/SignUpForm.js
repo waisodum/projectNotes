@@ -12,7 +12,8 @@ function SignUpForm() {
   const [year, setYear] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router =useRouter()
+  const router =useRouter();
+
   const changeBranch = (bra) => {
     setBranch(bra.target.value);
   }
@@ -40,13 +41,20 @@ try
 {    var GG = await axios.post("http://localhost:8000/Register", userData);
   
 if (!GG.data.success) {
+  
+  if (GG.data.message==='email already exists') {
+    setEmail("")
+    
+  }else{
   setUsername("");
-  setEmail("")
+
+}
+
   alert(GG.data.message);
   return null
 } 
 else {
-  router.push('/')
+  // router.push('')
   setEmail("");
   setFirstName("");
   setLastName("");

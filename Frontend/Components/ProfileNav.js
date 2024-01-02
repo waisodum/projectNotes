@@ -9,8 +9,6 @@ import { FaAngleDown } from "react-icons/fa";
 import { HiLogout } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
 import gsap from 'gsap';
-import { FcDataConfiguration } from 'react-icons/fc'
-import { delay } from 'lodash'
 import { useRouter } from 'next/navigation'
 
 function profileNav() {

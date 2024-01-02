@@ -1,7 +1,7 @@
 'use client'
 
 import { ProfileData } from '@/Helper/Context'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState,onBeforeUnmount } from 'react'
 import '../Styles/navbar.css'
 import gsap from 'gsap'
 import { FaCircleUser } from "react-icons/fa6";
@@ -45,10 +45,6 @@ const router=useRouter()
     })
   })
 
-  function logout() {
-    localStorage.removeItem("Token");
-    router.push('/')
-  }
   return (  
     <div className='navbar'>
 

@@ -6,6 +6,7 @@ import { ProfileData } from '@/Helper/Context'
 // import gsap from 'gsap'
 import Image from 'next/image';
 import Link from 'next/link';
+import UploadArea from './UploadArea';
 
 
 function ProfileBody() {
@@ -156,6 +157,8 @@ function ProfileBody() {
                     Your Uploads
                 </Link>
             </div>
+
+            <UploadArea />
 
         </div>
 

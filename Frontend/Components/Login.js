@@ -30,6 +30,7 @@ function Login() {
         ease: "power1.out",
       });
   }, []);
+
   async function handleSubmit(e) {
     setIsload(true);
     var g = {
@@ -37,7 +38,7 @@ function Login() {
       password,
     };
     e.preventDefault();
-    try {
+    try {                       
       const response = await axios.post("http://localhost:8000/login", g);
       // console.log(response.data);
       if (response.data.success) {
@@ -45,8 +46,8 @@ function Login() {
         // console.log(response.data);
        await  localStorage.setItem("Token",response.data.token)
         //  console.log(data);
+        await router.push('/home')
         setIsload(false);
-         router.push('/home')
         return null;
       } else {
         alert(response.data.message);
