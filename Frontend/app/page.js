@@ -28,15 +28,20 @@ function Home() {
   return (
     <div className='body'>
 
-      {localStorage.getItem('Token') ? router.push('/notes-sharing'): <Login />}
+      {localStorage.getItem('Token') ? router.push('/notes-sharing'): 
+      <div>
 
-      <div className='logoLogin'>
+        <Login />
 
-        <Link href='/'> <h1 className='cNone'> Campus Chronicles </h1> </Link>
+        <div className='logoLogin'>
 
-      </div>
-      
-      <Register />
+          <Link href='/'> <h1 className='cNone'> Campus Chronicles </h1> </Link>
+
+        </div>
+
+        <Register />
+
+      </div>}
 
     </div>
   )
