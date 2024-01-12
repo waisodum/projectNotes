@@ -26,7 +26,7 @@ const Page = () => {
 
         setdata(response.data.UserData);
       } catch (error) {
-        // Handle error, maybe redirect to login page
+        // Reedirect user to login page if not logged in
         console.error('Error fetching data:', error);
         router.push('/');
       } finally {
@@ -38,7 +38,7 @@ const Page = () => {
   }, []);
 
   if (loading) {
-    // Render loading state or spinner here
+    //Spinner hai ye
     return <div class="reload-container">
     <div class="reload-icon"></div>
   </div>;
@@ -48,6 +48,7 @@ const Page = () => {
     <div className="notesMain">
       {data.branch ? <Navbar /> : null}
       {data.branch ? <LeftMenu /> : null}
+      {localStorage.getItem("Token")? <MainContent />: router.push}
 
     </div>
   );

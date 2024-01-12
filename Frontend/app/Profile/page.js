@@ -54,7 +54,7 @@ function page() {
   return (
     <div className='profileMain'>
 
-        {data.branch?<ProfileNav />:null}
+        {data.branch?<ProfileNav />: router.push('/')}
 
         {data.branch?<ProfileBody/>:null}
 

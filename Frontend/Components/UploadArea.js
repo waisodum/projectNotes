@@ -17,8 +17,9 @@ const UploadArea = () => {
   const [sNo, setSNo] = useState(1);
   const branch = data.branch;
   const year = data.year;
+  const username = data.username;
   const [bucketCreated, setBucketCreated] = useState(false); 
-  const [selectedFile, setSelectedFile] = useState(null); 
+  const [selectedFile, setSelectedFile] = useState(null);   
   const [uploadedNote, setUploadedNote] = useState([]);
   const [subjectName, setSubjectName] = useState(subjects[branch][year][1][0]);
   const [mainPath, setMainPath] = useState('');
@@ -26,6 +27,17 @@ const UploadArea = () => {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
+
+// useEffect(() => {
+//  Geturl();
+// }, [])
+
+
+//   async function Geturl(){
+//   const {data,error}= await supabase.storage.from('Notes Bucket').getPublicUrl('IT/SE/Engineering Mathematics-III/SanketSonawane11_Intro and Graph theory.pdf');
+//   console.log(data);
+//   }
 
   const handleFileUpload = async () => {
     if (selectedFile) {
@@ -53,7 +65,7 @@ const UploadArea = () => {
 
         const path = `${branch}/${year}/${subjectName}`;
         const originalFileName = selectedFile.name;
-        const uploadedFileName = `${path}/${id}_${originalFileName}`;
+        const uploadedFileName = `${path}/${username}_${originalFileName}`;
         console.log(uploadedFileName);
 
         const { data, error } = await supabase.storage
