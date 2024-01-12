@@ -4,7 +4,7 @@
 
 .navbar
 {
-    z-index: 0;
+    z-index: 1;
     width: 78vw;
     height: 5vw;
     background: linear-gradient(to right, #5337AC, #826cc7);
@@ -13,7 +13,7 @@
     right: 0;
     color: aliceblue;
     padding: 0.5vw 1vw;
-    border-radius: 0 0 1vw 0;
+    /* border-radius: 0 0 1vw 0; */
     opacity: 0;
     cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
     display: flex;

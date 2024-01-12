@@ -1,5 +1,5 @@
-
 'use client'
+
 import LeftMenu from "@/Components/LeftMenu";
 import { ProfileData } from "@/Helper/Context";
 import { useContext, useEffect,useState } from "react";
@@ -7,6 +7,7 @@ import "../../Styles/notesPage.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Navbar from "@/Components/Navbar";
+import MainContent from "@/Components/MainContent";
 
 
 const Page = () => {
@@ -48,8 +49,7 @@ const Page = () => {
     <div className="notesMain">
       {data.branch ? <Navbar /> : null}
       {data.branch ? <LeftMenu /> : null}
-      {localStorage.getItem("Token")? <MainContent />: router.push}
-
+      {localStorage.getItem("Token")? <MainContent />: "Login First!!"}
     </div>
   );
 };
