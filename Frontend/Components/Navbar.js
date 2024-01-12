@@ -32,7 +32,16 @@ const router=useRouter()
     padding: '0.2vw',
 };
 
-  const firstName = data.firstName;
+  const [firstName, setFirstName] = useState(null);
+
+  useEffect(() => {
+    const fetchData = ()=>
+    {
+      setFirstName(data.firstName);
+    }
+    fetchData();
+  }, [])
+  
 
   useEffect(()=>
   {
