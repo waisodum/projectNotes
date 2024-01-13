@@ -7,20 +7,24 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import '../Styles/notesContent.css'
 
 
-export default function MainContent() {
+export default function MainContent({setSubject}) {
   const {data} = useContext(ProfileData);
   const [files, setFiles] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const branch = data.branch;
   const year = data.year;
-  const folderPath = `IT/SE/Database Management System`; 
+  // const folderPath = `IT/SE/Database Management System`; 
+  const [folderPath, setFolderPath] = useState(null);
 
   console.log(folderPath);
-
+ 
   useEffect(() => {
+    setFolderPath(`IT/SE/${setSubject}`);
+    // setFiles([]);
+    console.log(folderPath);
     fetchFiles();
-  }, [page]);
+  }, [page, setSubject]);
 
   const fetchFiles = async () => {
     try {
@@ -44,6 +48,7 @@ export default function MainContent() {
             
             if (urlError) {
               console.error(`Error getting public URL for ${file.name}:`, urlError);
+              console.log(`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`);
               return { ...file, publicURL: null };
             }
 

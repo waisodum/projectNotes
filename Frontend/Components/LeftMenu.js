@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { Router } from "next/router";
 import { useRouter } from "next/navigation";
 
-function Navbar() {
+function LeftMenu({currentSubject}) {
   const { data, subjects } = useContext(ProfileData);
 
   const [activeSub, setActiveSub] = useState(null);
@@ -19,7 +19,6 @@ function Navbar() {
   // const [token, settoken] = useState("")
 
   const router = useRouter();
-  
   
   
   useEffect(() => {
@@ -62,6 +61,7 @@ function Navbar() {
 
   const clickResponse = (subject) => {
     setActiveSub(subject == activeSub ? null : subject);
+    currentSubject(activeSub);
   };
 
   return (
@@ -104,4 +104,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default LeftMenu;
