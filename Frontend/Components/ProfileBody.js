@@ -9,7 +9,7 @@ import Link from 'next/link';
 import UploadArea from './UploadArea';
 
 
-function ProfileBody() {
+function ProfileBody({token}) {
 
     const {data, updateUserData} = useContext(ProfileData);
 
@@ -22,7 +22,8 @@ function ProfileBody() {
     const [dayGreet, setDayGreet] = useState('');
 
     useEffect(()=>
-    {
+    { 
+        // console.log(token);
         const time = new Date();
         const hour = time.getHours();
 
@@ -135,7 +136,7 @@ function ProfileBody() {
 
         <div className='updateSection'>
 
-            <div className='uploadCard'>
+            <button className='uploadCard'>
                 <h1 className='text-[1.45vw] font-bold'> Your Data </h1>
                 <div className='uploadData'>
 
@@ -156,9 +157,9 @@ function ProfileBody() {
                 <Link href='/uploads' className='uploadsBtn'>
                     Your Uploads
                 </Link>
-            </div>
+            </button>
 
-            <UploadArea />
+            <UploadArea token={token}/>
 
         </div>
 

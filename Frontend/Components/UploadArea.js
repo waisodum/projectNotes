@@ -1,35 +1,208 @@
-// 'use client'
+"use client";
+import React, { useState, useEffect, useContext } from "react";
+import { supabase } from "../utils/spuabase";
+import { ProfileData } from "@/Helper/Context";
 
-import React, { useState } from 'react'
+import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+const UploadArea = ({token}) => {
+  const { data, subjects, updateUserData } = useContext(ProfileData);
+  const [sem, setSem] = useState("Odd");
+  const [sNo, setSNo] = useState(1);
+  const branch = data.branch;
+  const year = data.year;
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploadedNote, setUploadedNote] = useState([]);
+  const [subjectName, setSubjectName] = useState(subjects[branch][year][1][0]);
+  var fileData;
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
-function UploadArea() {
 
-    return (
-        <div className='uploadSpace' >
-            
-            <div className='uploadColumn'>
-
-                <div className='p-[0.1vw]'>
-
-                    <h1 className='text-[1.5vw] font-bold'>Upload Notes here</h1>
-
-
-
-                </div>
+  
+  async function Getlink(link) {
+    try {
+      const { data, error } = await supabase.storage
+        .from("Notes Bucket")
+        .getPublicUrl(link);
+      return { success: true, Data: data.publicUrl };
+    } catch (err) {
+      return { success: false, err };
+    }
+  }
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-            </div>
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
-            <div className='uploadColumn'>
+  const handleFileUpload = async () => {
+    if (selectedFile) {
+      const id = await uuidv4();
+
+      toast("Uploading... \nPlease Wait", {
+        icon: "⏳",
+      });
+
+      const metadata = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        branch: branch,
+        username: data.username,
+        year: year,
+        sem: sNo,
+        subject: subjectName,
+        id: id,
+      };
+
+      
+
+      try {
+        const path = `${branch}/${subjectName}`;
+        const originalFileName = selectedFile.name;
+        const uploadedFileName = `${path}/${originalFileName}`;
+
+        const { data, error } = await supabase.storage
+          .from("Notes Bucket")
+          .upload(uploadedFileName, selectedFile, { metadata });
+
+        if (error) {
+          console.error("Error uploading file:", error);
+          toast.error("Unable to Upload:", error, {
+            icon: "👎🏼",
+          });
+        } else {
+          
+          toast.success("Uploaded Successfully", {
+            icon: "🍻",
+          });
+          setSelectedFile(null);
+ try {
+    const pathURl=await Getlink(uploadedFileName);
+    fileData = {
+      title: originalFileName,
+      Branch: branch,
+      Year: year,
+      Path:pathURl.Data,
+      Subject: subjectName,
+    };
+    console.log(fileData);
+    const response= await axios.post('http://localhost:8000/upload',{fileData,token})
+ } catch (error) {
+  alert('something went wrong')
+ }
 
 
+        }
+      } catch (error) {
+        toast.error("Error Uploading file, please try again ::", error, {
+          icon: "👎🏼",
+        });
+        console.error("Error uploading file:", error);
+      }
+    } else {
+      console.error("No file selected", {
+        icon: "👎🏼",
+      });
+      toast.warn("Please select a file to upload", {
+        icon: "",
+      });
+    }
+  };
 
-            </div>
+  const subjectsAvailable = subjects[branch][year][sNo];
 
+  const handleSem = () => {
+    if (sem === "Odd") {
+      setSem("Even");
+      setSNo(2);
+    } else {
+      setSem("Odd");
+      setSNo(1);
+    }
+  };
+
+  return (
+    <button className="uploadSpace">
+      <div className="topLevel">
+        <div className="uploadColumn">
+          <div className="fileDrop">
+            <h1 className="text-[1.5vw] font-bold">Upload Notes here</h1>
+            <input
+              type="file"
+              accept="application/pdf"
+              className="uploader"
+              onChange={handleFileChange}
+            />
+          </div>
         </div>
-    )
-}
 
-export default UploadArea
+        <div className="uploadColumn">
+          <form className="uploadForm">
+            <div className="uFormRow py-[1vw]">
+              <h4 className="uploadField"> Subject Name </h4>
+
+              <select
+                className="inputF"
+                onChange={(e) => {
+                  setSubjectName(e.target.value);
+                }}
+                required
+              >
+                {subjectsAvailable.map((subject, index) => (
+                  <option value={subject} key={index}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button />
+            <div className="uFormRow">
+              <h4 className="uploadField"> Semester </h4>
+              <div
+                className="inputF flex items-center justify-center"
+                onClick={handleSem}
+              >
+                {sem} Semester
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <button className="uploadsBtn" onClick={handleFileUpload}>
+        Upload File
+      </button>
+      <ToastContainer />
+    </button>
+  );
+};
+
+export default UploadArea;

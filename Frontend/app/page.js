@@ -30,7 +30,7 @@ function Home() {
       router.push('/notesSharing');
       console.log(data.firstName);
     }
-  }, [data.firstName, router]);
+  }, [data.firstName]);
 
   return (
     <div className='body'>

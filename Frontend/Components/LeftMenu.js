@@ -40,6 +40,7 @@ function Navbar() {
       scale: 1.1,
     });
   }, []);
+  
   const semChange = () => {
     if (sem === "Even") {
       setSem("Odd");
@@ -68,8 +69,7 @@ function Navbar() {
       <div className="logo">
         <Link href="/">
           <h1 className="cNone">Campus Chronicles</h1>
-        </Link>{" "}
-        {/* Website ka naam  */}
+        </Link>
       </div>
 
       <div className="restMenu">

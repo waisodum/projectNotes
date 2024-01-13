@@ -33,7 +33,12 @@ const router=useRouter()
 };
 
   const firstName = data.firstName;
-
+  function logout() {
+    localStorage.removeItem("Token");
+    updateUserData({});
+    setUserData({});
+    router.push('/')
+  }
   useEffect(()=>
   {
     const tl = gsap.timeline();

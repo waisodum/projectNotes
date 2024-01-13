@@ -15,12 +15,13 @@ function page() {
   const { setdata,data } = useContext(ProfileData);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-
+const [Token, setToken] = useState()
   useEffect(() => {
     
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('Token');
+        setToken(token)
         const response = await axios.get('http://localhost:8000/login/protected', {
           headers: { Authorization: token , 'Cache-Control': 'no-store',
           'Pragma': 'no-cache',
@@ -29,19 +30,19 @@ function page() {
 
         setdata(response.data.UserData);
       } catch (error) {
-        // Handle error, maybe redirect to login page
+
         // console.error('Error fetching data:', error);
          router.push('/');
       } finally {
         setLoading(false);
       }
     };
-
+    
     fetchData();
   }, []);
 
   if (loading) {
-    // Render loading state or spinner here
+
     return<div class="reload-container">
     <div class="reload-icon"></div>
   </div>
@@ -56,7 +57,7 @@ function page() {
 
         {data.branch?<ProfileNav />:null}
 
-        {data.branch?<ProfileBody/>:null}
+        {data.branch?<ProfileBody token={Token} />:null}
 
     </div>
   )
