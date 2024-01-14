@@ -7,24 +7,35 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import '../Styles/notesContent.css'
 
 
-export default function MainContent({setSubject}) {
-  const {data} = useContext(ProfileData);
+export default function MainContent() {
+  const {data, currentSubject, changeCurrentSubject} = useContext(ProfileData);
   const [files, setFiles] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const branch = data.branch;
   const year = data.year;
-  // const folderPath = `IT/SE/Database Management System`; 
+  const activeSubject = currentSubject;
+  console.log(branch, year, activeSubject); 
   const [folderPath, setFolderPath] = useState(null);
-
-  console.log(folderPath);
  
+  // useEffect(() => {
+  //   setFolderPath(`${branch}/${year}/${activeSubject}`);
+  //   setFiles([]);
+  //   // console.log(folderPath);
+  //   fetchFiles();
+  // }, [activeSubject, currentSubject]);
+
   useEffect(() => {
-    setFolderPath(`IT/SE/${setSubject}`);
-    // setFiles([]);
-    console.log(folderPath);
-    fetchFiles();
-  }, [page, setSubject]);
+    changeCurrentSubject(activeSubject);
+    setFolderPath(`${branch}/${year}/${activeSubject}`);
+  }, [activeSubject, branch, year, changeCurrentSubject]);
+
+  useEffect(() => {
+    if (folderPath) {
+      setFiles([]);
+      fetchFiles();
+    }
+  }, [folderPath]);
 
   const fetchFiles = async () => {
     try {
@@ -48,15 +59,15 @@ export default function MainContent({setSubject}) {
             
             if (urlError) {
               console.error(`Error getting public URL for ${file.name}:`, urlError);
-              console.log(`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`);
+              // console.log(`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`);
               return { ...file, publicURL: null };
             }
 
-            console.log(data)
+            // console.log(data)
             return { ...file, publicURL: urlData };
           })
         );
-
+ 
         // Update state with unique files and URLs
         setFiles(prevFiles => {
           const uniqueFileNames = new Set(prevFiles.map(file => file.name));

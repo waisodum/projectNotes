@@ -14,12 +14,6 @@ const Page = () => {
   const { data, setdata } = useContext(ProfileData);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [currentSubject, setCurrentSubject] = useState(null);
-
-  const setSubject = (subject)=>
-  {
-    setCurrentSubject(subject);
-  }
   
   useEffect(() => {
     const fetchData = async () => {
@@ -54,8 +48,8 @@ const Page = () => {
   return (
     <div className="notesMain">
       {data.branch ? <Navbar /> : null}
-      {data.branch ? <LeftMenu currentSubject={setSubject}/> : null}
-      {localStorage.getItem("Token")? <MainContent setSubject={currentSubject} />: "Login First!!"}
+      {data.branch ? <LeftMenu/> : null}
+      {localStorage.getItem("Token")? <MainContent/>: "Login First!!"}
     </div>
   );
 };

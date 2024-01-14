@@ -80,7 +80,7 @@ const router=useRouter()
             <div className='profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-white'><FaCircleUser /></div>
             <h5 className='text-[1.3vw] m-[0.2vw]'> {firstName} </h5>
             <div className='downArrow text-[1.1vw] mt-[0.3vw] inline-block w-[1.5vw] text-white' style={menu? {transform: 'rotate(180deg)'} : {}}><FaAngleDown 
-            style={
+            style={ 
               menu? {transform: 'translateX(5px)'}: {}
             }
             /></div>
