@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ProfileData } from "@/Helper/Context";
 import { data } from "autoprefixer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -41,7 +43,8 @@ function Login() {
     try {
       const response = await axios.post("http://localhost:8000/login", g);
       // console.log(response.data);
-      if (response.data.success) {
+      if (response.data.success) 
+      {
         setdata(response.data.User);
         // console.log(response.data);
        await  localStorage.setItem("Token",response.data.token)
@@ -49,7 +52,9 @@ function Login() {
         setIsload(false);
          router.push('/home')
         return null;
-      } else {
+      } 
+      else 
+      {
         alert(response.data.message);
         setIsload(false);
       }
