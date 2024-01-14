@@ -17,13 +17,6 @@ export default function MainContent() {
   const activeSubject = currentSubject;
   console.log(branch, year, activeSubject); 
   const [folderPath, setFolderPath] = useState(null);
- 
-  // useEffect(() => {
-  //   setFolderPath(`${branch}/${year}/${activeSubject}`);
-  //   setFiles([]);
-  //   // console.log(folderPath);
-  //   fetchFiles();
-  // }, [activeSubject, currentSubject]);
 
   useEffect(() => {
     changeCurrentSubject(activeSubject);

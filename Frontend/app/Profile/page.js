@@ -10,9 +10,7 @@ import axios from "axios";
 
 function page() {
 
-
-
-  const { setdata,data } = useContext(ProfileData);
+  const { setdata ,data } = useContext(ProfileData);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -29,8 +27,6 @@ function page() {
 
         setdata(response.data.UserData);
       } catch (error) {
-
-        // console.error('Error fetching data:', error);
          router.push('/');
       } finally {
         setLoading(false);
@@ -41,22 +37,19 @@ function page() {
   }, []);
 
   if (loading) {
-
     return<div class="reload-container">
     <div class="reload-icon"></div>
-  </div>
-  
-  
-  ;
+    </div>  
   }
 
+  (localStorage.getItem('Token')) ? null : router.push('/');
 
   return (
     <div className='profileMain'>
 
-        {data.branch?<ProfileNav />: router.push('/')}
+        {data.branch? <ProfileNav />: "Wait..."}
 
-        {data.branch?<ProfileBody/>:null}
+        {data.branch? <ProfileBody/>: null}
 
     </div>
   )

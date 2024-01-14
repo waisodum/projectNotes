@@ -37,6 +37,12 @@ function Register() {
 
         })
 
+        t1.to('.RegPara', {
+            opacity: 1,
+            duration: 0.5,
+            delay: -0.5,
+        })
+
         t1.to('.rButton', {
             delay: -0.6,
             duration: 0.2,
@@ -53,8 +59,10 @@ function Register() {
 
         <div className='rHeading'>
 
-            <h2 className='firstText w-[100%] text-left'>First time?</h2> 
-            <h3 className='secondText'>Join the Hub</h3>
+            <h2 className='firstText w-[100%] text-[3vw] text-left'>First time?</h2> 
+            <h3 className='secondText text-[3.6vw]'>Join the Hub</h3>
+
+            <p className='RegPara'>– the ultimate hangout for college squad. Let's share, and groove together!</p>  
 
         </div>
 

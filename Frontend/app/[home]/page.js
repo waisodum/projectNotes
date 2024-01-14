@@ -47,8 +47,8 @@ const Page = () => {
 
   return (
     <div className="notesMain">
-      {data.branch ? <Navbar /> : null}
-      {data.branch ? <LeftMenu/> : null}
+      {data.branch && <Navbar />}
+      {data.branch && <LeftMenu/>}
       {localStorage.getItem("Token")? <MainContent/>: "Login First!!"}
     </div>
   );
