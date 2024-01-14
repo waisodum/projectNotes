@@ -43,6 +43,7 @@ function Login() {
     try {
       const response = await axios.post("http://localhost:8000/login", g);
       // console.log(response.data);
+
       if (response.data.success) 
       {
         setdata(response.data.User);
@@ -53,15 +54,24 @@ function Login() {
          router.push('/home')
         return null;
       } 
+
       else 
       {
         alert(response.data.message);
         setIsload(false);
       }
-    } catch (err) {
+
+    } 
+    
+    catch (err) {
       setIsload(false);
       alert("sorry were down");
       console.log(err);
+      toast.error(
+        "Server is not responding. Please Report!", {
+          icon: '‼️'
+        }
+      )
     }
   }
   return (
