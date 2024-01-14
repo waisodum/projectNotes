@@ -13,7 +13,6 @@
     flex-direction: column; 
     align-items: center;
     justify-content: center;
-    color: white;
 }
 
 .innerLogin
@@ -39,6 +38,7 @@
     text-align: center;
     font-weight: 600;
     margin: 3vw;
+    color: white;
 }
 
 .loginMethods
