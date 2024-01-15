@@ -87,7 +87,7 @@ export default function MainContent() {
         next={loadMore}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        endMessage={<p className='text-center w-[90%] mt-[2vw]'>{
+        endMessage={<p className='text-center w-[100%] mt-[2vw]'>{
           (files[0]? 'This is the end' : 'No files to Display')
         }</p>}
         >
