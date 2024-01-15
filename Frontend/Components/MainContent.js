@@ -15,7 +15,6 @@ export default function MainContent() {
   const branch = data.branch;
   const year = data.year;
   const activeSubject = currentSubject;
-  console.log(branch, year, activeSubject); 
   const [folderPath, setFolderPath] = useState(null);
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function MainContent() {
   const fetchFiles = async () => {
     try {
       const { data, error } = await supabase.storage.from('Notes Bucket').list(folderPath, {
-        limit: 10, 
+        limit: 1000, 
         offset: (page - 1) * 10, 
       });
 
@@ -52,11 +51,9 @@ export default function MainContent() {
             
             if (urlError) {
               console.error(`Error getting public URL for ${file.name}:`, urlError);
-              // console.log(`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`);
               return { ...file, publicURL: null };
             }
 
-            // console.log(data)
             return { ...file, publicURL: urlData };
           })
         );
@@ -83,21 +80,44 @@ export default function MainContent() {
   return (
     <div className='notesContent'>
 
-        <h2 className='text-[3vw] w-[100%] text-center'> Notes </h2>
+        <h2 className=' NOTES font-semibold text-[3vw] w-[100%] text-center'> Notes </h2>
 
         <InfiniteScroll
         dataLength={files.length}
         next={loadMore}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        endMessage={<p>No more files</p>}
+        endMessage={<p className='text-center w-[90%] mt-[2vw]'>{
+          (files[0]? 'This is the end' : 'No files to Display')
+        }</p>}
         >
-            {files.map((file, index) => (
+            {/* {files.map((file, index) => (
             <div key={index}>
             <p>{file.name}</p>
             {file.publicURL && <a href={`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`} target="_blank" rel="noopener noreferrer">Get URL</a>}
             </div>
-        ))}
+        ))} */}
+
+          <div className="files-container"
+            style={!files[0] ? {backgroundColor: 'transparent'} : null}
+          >
+
+          {files.map((file, index) => (
+
+            <div className='fileView' key={index}>
+
+              {file.publicURL && (
+
+                <a href={`https://jglyzjmgodvihjdwdcvt.supabase.co/storage/v1/object/public/Notes%20Bucket/${folderPath}/${file.name}`} target="_blank" rel="noopener noreferrer" 
+                className='file-entry'>{index+1} . {file.name}</a>
+              )}
+
+            </div>
+          ))}
+
+          </div>
+
+
         </InfiniteScroll>
 
     </div>
