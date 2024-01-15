@@ -32,7 +32,7 @@ export default function MainContent() {
   const fetchFiles = async () => {
     try {
       const { data, error } = await supabase.storage.from('Notes Bucket').list(folderPath, {
-        limit: 1000, 
+        limit: 100000, 
         offset: (page - 1) * 10, 
       });
 
@@ -80,7 +80,7 @@ export default function MainContent() {
   return (
     <div className='notesContent'>
 
-        <h2 className=' NOTES font-semibold text-[3vw] w-[100%] text-center'> Notes </h2>
+        <h2 className=' NOTES font-semibold text-[3vw] mb-[2vw] w-[100%] text-center'> Notes </h2>
 
         <InfiniteScroll
         dataLength={files.length}

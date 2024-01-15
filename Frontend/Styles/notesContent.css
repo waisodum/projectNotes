@@ -8,6 +8,8 @@
   right: 0;
   top: 4.99vw;
   scrollbar-width: 0;
+  scroll-behavior: smooth;
+  scrollbar-color: transparent;
   width: 79vw;
   height: 100vh;
   padding: 1vw 2vw;
@@ -30,7 +32,7 @@
   width: 100%;
   border-radius: 1.5vw;
   padding: 1vw 0.1vw;
-  background-color: #2a2a2a5e;
+  background-color: #2a2a2a1d;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -51,11 +53,12 @@
   padding: .1vw 2vw;
   transition: all .2s ease-out;
   cursor: none;
+  transition: all 0.2s ease-out;
 }
 
 .fileView:hover
 {
-  scale: 1.01;
+  transform: scale(1.01);
 }
   
 .file-entry 
@@ -74,10 +77,9 @@
 
 .file-entry:hover
 {
-  background-color: #2a2a2a2c;
-  color: #fff;
+  background-color: #ffffff67;
+  /* color: #fff; */
   border-radius: 1vw;
-  font-weight: 600;
 }
 
 .horizontalBar 
