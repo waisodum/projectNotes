@@ -59,6 +59,7 @@
 .fileView:hover
 {
   transform: scale(1.01);
+  color: #836cc7;
 }
   
 .file-entry 
