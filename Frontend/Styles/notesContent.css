@@ -30,20 +30,22 @@
 {
   height: fit-content;
   width: 99.6%;
-  border-radius: 1.5vw;
+  border-radius: 1vw;
   padding: 1vw 0.1vw;
   background-color: #2a2a2a1d;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   flex-direction: column;
   transition: all .2s ease-out;
   cursor: none;
+  overflow-x: hidden;
 }
 
 .files-container:hover 
 {
-  border-radius: 1vw;
+  border-radius: 0.5vw;
 }
 
 .fileView
@@ -58,8 +60,11 @@
 
 .fileView:hover
 {
-  transform: scale(1.01);
-  color: #5337AC;
+  scale: 1.01;
+  background-color: #836cc763;
+  /* color: aliceblue; */
+  width: 98%;
+  border-radius: 0.5vw;
 }
   
 .file-entry 
@@ -71,17 +76,16 @@
   border-radius: 1.5vw;
   height: fit-content;
   font-size: 1.1vw;
+  font-weight: 500;
   width: 100%;
   cursor: none;
   transition: all .2s ease-out;
 }
-
+/* 
 .file-entry:hover
 {
-  background-color: #ffffff67;
-  /* color: #fff; */
   border-radius: 1vw;
-}
+} */
 
 .horizontalBar 
 {
