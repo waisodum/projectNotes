@@ -66,6 +66,12 @@
   width: 98%;
   border-radius: 0.5vw;
 }
+
+.fileView:active
+{
+  background-color: #5337AC;
+  color: aliceblue;
+}
   
 .file-entry 
 {
