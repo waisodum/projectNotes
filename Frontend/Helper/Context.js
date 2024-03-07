@@ -314,7 +314,7 @@ function Context({children}) {
   return (
     <div> 
         
-        <ProfileData.Provider value={{data, subjects,setdata,updateUserData}}>
+        <ProfileData.Provider value={{data, subjects, setdata, updateUserData}}>
             {children}
         </ProfileData.Provider>
 

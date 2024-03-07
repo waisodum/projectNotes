@@ -4,7 +4,7 @@
 
 .navbar
 {
-    z-index: 0;
+    z-index: 1;
     width: 78vw;
     height: 5vw;
     background: linear-gradient(to right, #5337AC, #826cc7);
@@ -13,7 +13,7 @@
     right: 0;
     color: aliceblue;
     padding: 0.5vw 1vw;
-    border-radius: 0 0 1vw 0;
+    /* border-radius: 0 0 1vw 0; */
     opacity: 0;
     cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
     display: flex;
@@ -34,6 +34,7 @@
 {
     position: fixed ;
     top: 1vw;
+    transition: all 0.2s ease-out;
 }
 
 .profileName
@@ -41,12 +42,17 @@
     width: fit-content;
     padding: 0 0.5vw;
     height: 2.7vw;
-    border-radius: 1.5vw;
+    border-radius: 1vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #5337AC;
+    transition: all .1s ease-out;
+}
+
+.profileName:hover
+{
     background-color: #ffffff31;
-    transition: all 0.2s ease-out;
 }
 
 .dropdown
@@ -64,10 +70,6 @@
     flex-direction: column;
     padding: 0.2vw;
 }
-
-/* .profileIcon{
-
-} */
 
 .downArrow
 {

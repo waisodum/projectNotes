@@ -25,25 +25,23 @@ function Home() {
     })
   }, []);
 
-  useEffect(() => {
-    if (data.firstName) {
-      router.push('/notesSharing');
-      console.log(data.firstName);
-    }
-  }, [data.firstName]);
-
   return (
     <div className='body'>
 
-      <Login />
+      {localStorage.getItem('Token') ? router.push('/notes-sharing'): 
+      <div>
 
-      <div className='logoLogin'>
+        <Login />
 
-        <Link href='/'> <h1 className='cNone'> Campus Chronicles </h1> </Link>
+        <div className='logoLogin'>
 
-      </div>
-      
-      <Register />
+          <Link href='/'> <h1 className='cNone'> Campus Chronicles </h1> </Link>
+
+        </div>
+
+        <Register />
+
+      </div>}
 
     </div>
   )

@@ -6,12 +6,19 @@ import "../../Styles/notesPage.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Navbar from "@/Components/Navbar";
+import MainContent from "@/Components/MainContent";
 
 const Page = () => {
   const { data, setdata } = useContext(ProfileData);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [currentSubject, setCurrentSubject] = useState(null);
 
+  const setSubject = (subject)=>
+  {
+    setCurrentSubject(subject);
+  }
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,9 +37,9 @@ const Page = () => {
 
         setdata(response.data.UserData);
       } catch (error) {
-        // Handle error, maybe redirect to login page
-        console.error("Error fetching data:", error);
-        router.push("/");
+        // Reedirect user to login page if not logged in
+        console.error('Error fetching data:', error);
+        router.push('/');
       } finally {
         setLoading(false);
       }
@@ -53,7 +60,8 @@ const Page = () => {
   return (
     <div className="notesMain">
       {data.branch ? <Navbar /> : null}
-      {data.branch ? <LeftMenu /> : null}
+      {data.branch ? <LeftMenu currentSubject={setSubject}/> : null}
+      {localStorage.getItem("Token")? <MainContent setSubject={currentSubject} />: "Login First!!"}
     </div>
   );
 };

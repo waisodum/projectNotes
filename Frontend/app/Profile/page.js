@@ -55,7 +55,7 @@ const [Token, setToken] = useState()
   return (
     <div className='profileMain'>
 
-        {data.branch?<ProfileNav />:null}
+        {data.branch?<ProfileNav />: router.push('/')}
 
         {data.branch?<ProfileBody token={Token} />:null}
 
