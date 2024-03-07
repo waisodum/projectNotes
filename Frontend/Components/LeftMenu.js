@@ -7,8 +7,8 @@ import gsap from "gsap";
 import { Router } from "next/router";
 import { useRouter } from "next/navigation";
 
-function LeftMenu({currentSubject}) {
-  const { data, subjects } = useContext(ProfileData);
+function LeftMenu() {
+  const { data, subjects, currentSubject, changeCurrentSubject } = useContext(ProfileData);
 
   const [activeSub, setActiveSub] = useState(null);
 
@@ -16,17 +16,11 @@ function LeftMenu({currentSubject}) {
 
   const [sem, setSem] = useState("Odd");
 
-  // const [token, settoken] = useState("")
+  const [subject, setSubject] = useState(null);
 
   const router = useRouter();
   
   
-
-  const branch = data.branch;
-
-  const year = data.year;
-
-  const subjectsList = subjects[branch][year][sNo];
   useEffect(() => {
     const t = gsap.timeline();
 
@@ -56,17 +50,19 @@ function LeftMenu({currentSubject}) {
     }
   };
 
+  const branch = data.branch;
 
+  const year = data.year;
 
+  const subjectsList = subjects[branch][year][sNo];
 
-const clickResponse = (subject) => {
-  setActiveSub(subject);
-  // Use the callback of setActiveSub to ensure you have the updated value
-  setActiveSub((updatedActiveSub) => {
-    currentSubject(updatedActiveSub);
-    return updatedActiveSub; // Return the updated value for the next state update if needed
-  });
-};
+  const clickResponse = async (subject) => {
+    // setActiveSub(subject == activeSub ? null : subject);
+    if(activeSub !== subject)
+      setActiveSub(subject);
+    changeCurrentSubject(subject);
+    // console.log(activeSub);
+  };
 
   return (
     <div className="leftMenu">

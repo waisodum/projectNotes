@@ -1,10 +1,12 @@
 'use client'
 
-// import axios from 'axios';
+import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react'
 export const ProfileData = createContext();
 
 function Context({children}) {
+
+  const [currentSubject, setCurrentSubject] = useState(null);
 
   const [data, setdata] = useState({
     // firstName: "Sanket",
@@ -16,15 +18,17 @@ function Context({children}) {
     // uploadCount: 11,
     // likes: 29,
     // downloads: 5,
-    
-     websiteName: "Campus Chronicles",
   });
-
-
 
     const updateUserData = (newData)=>
     {
       setdata(newData);
+      // console.log(data);
+    }
+
+    const changeCurrentSubject = (subjectName) =>
+    {
+      setCurrentSubject(subjectName);
     }
 
     const subjects = {
@@ -199,23 +203,6 @@ function Context({children}) {
       },
 
       AIDS: {
-        FE: {
-          1: [
-            "Engineering Mathematics III",
-            "Discrete Structures and Graph Theory",
-            "Data Structure",
-            "Digital Logic & Computer Architecture",
-            "Computer Graphics",
-          ],
-
-          2: [
-            "Engineering Mathematics IV",
-            "Analysis of Algorithm",
-            "Database Management System",
-            "Operating System",
-            "Microprocessor"
-          ]
-        },
         SE: {
           1: [
             "Engineering Mathematics III",
@@ -327,17 +314,15 @@ function Context({children}) {
 
     }
 
-    
   return (
     <div> 
         
-        <ProfileData.Provider value={{data, subjects, setdata, updateUserData}}>
-            {children}
-        </ProfileData.Provider>
+      <ProfileData.Provider value={{data, subjects, setdata, updateUserData, changeCurrentSubject, currentSubject}}>
+        {children}
+      </ProfileData.Provider>
 
     </div>
   )
 }
 
 export default Context
-
