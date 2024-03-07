@@ -6,7 +6,7 @@ const { compareSync } = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 router.use(passport.initialize());
-require("../models/passport");
+require("../config/passport");
 
 router.post("/", (req, res) => {
   // console.log(req.body);
@@ -64,4 +64,9 @@ return res.send({success:true,UserData})
 
   }
 );
+
+
+
+
+
 module.exports = router;

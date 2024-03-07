@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
-function SignUpForm() {
+function SignUpForm({URL}) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [branch, setBranch] = useState('');
@@ -38,7 +38,7 @@ function SignUpForm() {
       password,
     };
 try
-{    var GG = await axios.post("http://localhost:8000/Register", userData);
+{    var GG = await axios.post(`${URL}/Register`, userData);
   
 if (!GG.data.success) {
   

@@ -28,10 +28,9 @@ function Home() {
   return (
     <div className='body'>
 
-      {localStorage.getItem('Token') ? router.push('/notes-sharing'): 
       <div>
 
-        <Login />
+        <Login URL={process.env.NEXT_PUBLIC_BACKEND_URL}/>
 
         <div className='logoLogin'>
 
@@ -41,7 +40,7 @@ function Home() {
 
         <Register />
 
-      </div>}
+      </div>
 
     </div>
   )

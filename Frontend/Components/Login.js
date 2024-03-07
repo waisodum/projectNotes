@@ -10,7 +10,7 @@ import axios from "axios";
 import { ProfileData } from "@/Helper/Context";
 import { data } from "autoprefixer";
 
-function Login() {
+function Login({URL}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [Isload, setIsload] = useState(false);
@@ -39,7 +39,7 @@ function Login() {
     };
     e.preventDefault();
     try {                       
-      const response = await axios.post("http://localhost:8000/login", g);
+      const response = await axios.post(`${URL}/login`, g);
       // console.log(response.data);
       if (response.data.success) {
         setdata(response.data.User);
@@ -55,7 +55,7 @@ function Login() {
       }
     } catch (err) {
       setIsload(false);
-      alert("sorry were down");
+      alert(err);
       console.log(err);
     }
   }

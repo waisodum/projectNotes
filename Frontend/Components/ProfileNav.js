@@ -15,7 +15,7 @@ function profileNav() {
   const { data, subjects, updateUserData } = useContext(ProfileData);
 
   const [userData, setUserData] = useState(data);
-
+  const [firstName, setfirstName] = useState(data.firstName)
   const router = useRouter();
   const [menu, setMenu] = useState(false);
 
@@ -34,12 +34,7 @@ function profileNav() {
   };
 
   useEffect(() => {
-    // gsap.to('.navbar',{
-    //   y: '9.6vw',
-    //   duration: 1,
-    //   ease: "expo.out",
-    // })
-
+ 
     gsap.to(".logo", {
       opacity: 1,
       duration: 0.2,
@@ -82,7 +77,7 @@ function profileNav() {
           <div className="profileIcon text-[1.5vw] m-[0.2vw] inline-block w-[1.5vw] text-slate-900">
             <FaRegCircleUser style={menu ? { color: "aliceblue" } : {}} />
           </div>
-          <h5 className="text-[1.3vw] m-[0.2vw]"> {data.firstName} </h5>
+          <h5 className="text-[1.3vw] m-[0.2vw]"> {firstName} </h5>
           <div
             className="downArrow text-[1.1vw] mt-[0.3vw] rounded-[1vw] inline-block w-[1.5vw] text-slate-900"
             style={

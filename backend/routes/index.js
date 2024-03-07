@@ -3,7 +3,9 @@ var router = express.Router();
 var createUser = require("../models/userSchema").User;
 const { hashSync, compareSync } = require("bcrypt");
 
-
+router.get('/',(req,res)=>{
+res.send("hiiii")
+})
 router.post("/Register", async (req, res) => {
   var userName = req.body.username;
   var found;

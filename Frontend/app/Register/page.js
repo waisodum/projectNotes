@@ -7,7 +7,6 @@ import gsap from 'gsap'
 
 function Register() {
   const [text, setText] = useState("Sign Up");
-
   useEffect(()=>
   {
     const t3 = gsap.timeline();
@@ -45,7 +44,7 @@ function Register() {
 
       <div className='formS'>
 
-        <SignUpForm/>
+        <SignUpForm URL={process.env.NEXT_PUBLIC_BACKEND_URL}/>
 
       </div>
 

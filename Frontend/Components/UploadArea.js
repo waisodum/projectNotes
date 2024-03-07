@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-const UploadArea = ({token}) => {
+const UploadArea = ({ token }) => {
   const { data, subjects, updateUserData } = useContext(ProfileData);
   const [sem, setSem] = useState("Odd");
   const [sNo, setSNo] = useState(1);
@@ -17,24 +17,7 @@ const UploadArea = ({token}) => {
   const [uploadedNote, setUploadedNote] = useState([]);
   const [subjectName, setSubjectName] = useState(subjects[branch][year][1][0]);
   var fileData;
-  
-  
-  
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-  
   async function Getlink(link) {
     try {
       const { data, error } = await supabase.storage
@@ -46,36 +29,14 @@ const UploadArea = ({token}) => {
     }
   }
 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   const username = data.username;
-  const [bucketCreated, setBucketCreated] = useState(false); 
-  const [mainPath, setMainPath] = useState('');
+  const [bucketCreated, setBucketCreated] = useState(false);
+  const [mainPath, setMainPath] = useState("");
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleFileChange = async (event) => {
+    await setSelectedFile(event.target.files[0]);
+    console.log(selectedFile);
   };
-
-
-// useEffect(() => {
-//  Geturl();
-// }, [])
-
-
-//   async function Geturl(){
-//   const {data,error}= await supabase.storage.from('Notes Bucket').getPublicUrl('IT/SE/Engineering Mathematics-III/SanketSonawane11_Intro and Graph theory.pdf');
-//   console.log(data);
-//   }
 
   const handleFileUpload = async () => {
     if (selectedFile) {
@@ -96,13 +57,10 @@ const UploadArea = ({token}) => {
         id: id,
       };
 
-      
-
       try {
-
         const path = `${branch}/${year}/${subjectName}`;
         const originalFileName = selectedFile.name;
-        const uploadedFileName = `${path}/${username}_${originalFileName}`;
+        const uploadedFileName = `${path}/${id}/${originalFileName}`;
         console.log(uploadedFileName);
 
         const { data, error } = await supabase.storage
@@ -115,29 +73,44 @@ const UploadArea = ({token}) => {
             icon: "👎🏼",
           });
         } else {
-          
-          console.log('File uploaded successfully:', data);
+          console.log("File uploaded successfully:", data);
           console.log(data.id);
-          toast.success("Uploaded Successfully", {
-            icon: "🍻",
-          });
+
           setSelectedFile(null);
- try {
-    const pathURl=await Getlink(uploadedFileName);
-    fileData = {
-      title: originalFileName,
-      Branch: branch,
-      Year: year,
-      Path:pathURl.Data,
-      Subject: subjectName,
-    };
-    console.log(fileData);
-    const response= await axios.post('http://localhost:8000/upload',{fileData,token})
- } catch (error) {
-  alert('something went wrong')
- }
+          try {
+            const pathURl = await Getlink(uploadedFileName);
+            fileData = {
+              title: originalFileName,
+              Branch: branch,
+              Year: year,
+              Path: pathURl.Data,
+              Subject: subjectName,
+            };
 
-
+            const response = await axios.post(
+              "http://localhost:8000/upload",
+              {
+                fileData,
+              },
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: token, // Use 'Bearer' if you're using a token-based authentication
+                  // If you're using other types of authentication, adjust the header accordingly
+                },
+              }
+            );
+            toast.success("Uploaded Successfully", {
+              icon: "🍻",
+            });
+          } catch (err) {
+            const { data, error } = await supabase.storage
+              .from("Notes Bucket")
+              .remove([uploadedFileName]);
+            toast.error("Error Uploading file, please try again later", null, {
+              icon: "👎🏼",
+            });
+          }
         }
       } catch (error) {
         toast.error("Error Uploading file, please try again ::", error, {
@@ -155,38 +128,6 @@ const UploadArea = ({token}) => {
     }
   };
 
-  // const [files, setFiles] = useState([]);
-
-  // useEffect(() => {
-  
-  // const check = async ()=>
-  // {
-
-  //   try{
-  //     const {data, error} = await supabase.storage.from('Notes Bucket').list(mainPath);
-  //     if (error)
-  //     {
-  //       console.log("No!!")
-  //     }
-
-  //     else{
-  //       setFiles(data);
-  //       console.log(data);
-  //     }
-  //   }
-
-  //   catch(error)
-  //   {
-  //     console.log("Nhi hua");
-  //   }
-  // }
-
-  // check();
-    
-  // }, []);
-  
-
-  
 
   const subjectsAvailable = subjects[branch][year][sNo];
 

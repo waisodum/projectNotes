@@ -6,13 +6,13 @@ import "../../Styles/notesPage.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Navbar from "@/Components/Navbar";
-import MainContent from "@/Components/MainContent";
+import MainContent from "@/Components/MainContent2";
 
 const Page = () => {
-  const { data, setdata } = useContext(ProfileData);
+  const { data, setdata } = useContext(ProfileData)
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [currentSubject, setCurrentSubject] = useState(null);
+  const [currentSubject, setCurrentSubject] = useState();
 
   const setSubject = (subject)=>
   {
@@ -22,9 +22,10 @@ const Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        var url =`${process.env.NEXT_PUBLIC_BACKEND_URL}/login/protected`
         const token = localStorage.getItem("Token");
         const response = await axios.get(
-          "http://localhost:8000/login/protected",
+          url,
           {
             headers: {
               Authorization: token,
@@ -59,9 +60,9 @@ const Page = () => {
 
   return (
     <div className="notesMain">
-      {data.branch ? <Navbar /> : null}
-      {data.branch ? <LeftMenu currentSubject={setSubject}/> : null}
-      {localStorage.getItem("Token")? <MainContent setSubject={currentSubject} />: "Login First!!"}
+      {data.branch? <><Navbar name={data.firstName}/> 
+       <LeftMenu currentSubject={setSubject}/> 
+       <MainContent setSubject={currentSubject} URL={process.env.NEXT_PUBLIC_BACKEND_URL} /></>:null}
     </div>
   );
 };

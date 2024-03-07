@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation'
 
 function Navbar() {
 
-  const {data, subjects} = useContext(ProfileData);
+  const {data,updateUserData, subjects} = useContext(ProfileData);
   const [over, setOver] = useState(false);
   const [menu, setMenu] = useState(false);
 const router=useRouter()
@@ -35,7 +35,7 @@ const router=useRouter()
   function logout() {
     localStorage.removeItem("Token");
     updateUserData({});
-    setUserData({});
+    // setUserData({});
     router.push('/')
   }
   const [firstName, setFirstName] = useState(null);

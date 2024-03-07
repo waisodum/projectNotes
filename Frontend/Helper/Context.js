@@ -1,6 +1,6 @@
 'use client'
 
-import axios from 'axios';
+// import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react'
 export const ProfileData = createContext();
 
@@ -199,6 +199,23 @@ function Context({children}) {
       },
 
       AIDS: {
+        FE: {
+          1: [
+            "Engineering Mathematics III",
+            "Discrete Structures and Graph Theory",
+            "Data Structure",
+            "Digital Logic & Computer Architecture",
+            "Computer Graphics",
+          ],
+
+          2: [
+            "Engineering Mathematics IV",
+            "Analysis of Algorithm",
+            "Database Management System",
+            "Operating System",
+            "Microprocessor"
+          ]
+        },
         SE: {
           1: [
             "Engineering Mathematics III",

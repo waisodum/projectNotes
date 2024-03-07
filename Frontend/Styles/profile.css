@@ -121,6 +121,121 @@
     color: #2a2a2a;
 }
 
+/*--------------responsive--------------*/
+@media (max-width: 900px) {
+    .navbar
+{
+    width: 100vw;
+    height: 5.5vw;
+    font-size: 1.1vw;
+    color: black;
+    background-color: #836cc734;
+    border-radius: 0 0 1vw 1vw;
+    display: block;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    padding: 0 1.5vw;
+}
+    .dropdown
+{
+    width: 9vw;
+    border-radius: 0 0 0.8vw 0.8vw;
+    height: 8vw;
+    background-color: #5337AC;
+    color: #2a2a2a;
+    border-bottom: 0.1vw solid #2a2a2a;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2vw;
+    margin: auto,auto;
+}
+    .navbar
+    {
+        width: 100vw;
+        height: 15vh;
+        font-size: 8.1vw;
+        color: black;
+        background-color: #836cc734;
+        border-radius: 0 0 1vw 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5vw;    }
+
+    .logo
+    {
+     
+height: fit-content;
+    font-size: 78%;
+    font-weight: 600;
+    padding: 1vw 0;
+    line-height: 3.3vw;
+    font-family: "Kalnia";
+    opacity: 0;
+    margin: 0 0 1.8vw 0;
+    cursor: default;
+    /* text-wrap: wrap; */
+    width: min-content;
+    }
+    .profile
+{
+    position: static;
+    /* top: 1.5vw; */
+    /* width: -moz-fit-content; */
+    width: fit-content;
+    opacity: 0;
+    /* right: 1.5vw; */
+    cursor: default;
+    border: black 1px solid;
+    height: fit-content;
+    
+}
+.profileName {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0 0.5vw;
+    height: 2.7vw;
+    border-radius: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff31;
+    border: 1px solid #2a2a2a;
+    transition: all 0.2s ease-out;
+}
+
+  }
+@media (max-width: 391px) {
+    .navbar
+    {
+        width: 100vw;
+        height: 15vh;
+        font-size: 10.1vw;
+        color: black;
+        background-color: #836cc734;
+        border-radius: 0 0 1vw 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5vw;    }
+
+    .logo
+    {
+     
+    /* width: 31vw; */
+    /* height: 5vw; */
+    font-size: 91%;
+    font-weight: 600;
+    padding: 1vw 0;
+    line-height: 3.3vw;
+    font-family: "Kalnia";
+    opacity: 0;
+    margin: 0 0 1.8vw 0;
+    cursor: default;
+    }
+  }
 /* ----------------------------------------------- Body ------------------------------------------------- */
 
 .profileBody
@@ -145,8 +260,15 @@
 {
     width: 40%;
     height: 100%;
-}
+    display: flex;
+    flex-direction: column;
 
+}
+/* @media (max-width: 800px) {
+  .heroText h1 {
+
+  }
+} */
 .dayGreet
 {
     width: 80%;
@@ -157,7 +279,7 @@
 
 .heroInfo
 {
-    width: 45vw;
+    width: 100%;
     height: 5vw;
     background-color: #836cc734;
     margin: 1vw 0;
@@ -183,12 +305,25 @@
 {
     width: 50%;
     height: 20vw;
-    margin: 2vw 0;
+    margin: 0.5vw 0;
     background: url('/form1.jpg') no-repeat;
     background-size: cover;
     border-radius: 1vw;
 }
 
+
+@media (max-width: 1400px ) {
+    .updateDetails
+    {
+        width: 50%;
+        height: 20vw;
+        margin:  0;
+        background: url('/form1.jpg') no-repeat;
+        background-size: cover;
+        border-radius: 1vw;
+    }
+    
+  }
 .updateForm
 {
     width: 100%;
@@ -256,7 +391,7 @@ input
     width: 100%;
     height: 50%;
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: space-evenly;
     /* border: 2px solid black; */
 }

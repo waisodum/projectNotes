@@ -6,23 +6,22 @@ import ProfileBody from '@/Components/ProfileBody'
 import { ProfileData } from "@/Helper/Context";
 import { useRouter } from 'next/navigation'
 import axios from "axios";
-
+import ResposiveNav from '@/Components/resposiveNav'
 
 function page() {
-
-
-
   const { setdata,data } = useContext(ProfileData);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  
+
 const [Token, setToken] = useState()
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
+        let url=process.env.NEXT_PUBLIC_BACKEND_URL
         const token = localStorage.getItem('Token');
         setToken(token)
-        const response = await axios.get('http://localhost:8000/login/protected', {
+        const response = await axios.get(`${url}/login/protected`, {
           headers: { Authorization: token , 'Cache-Control': 'no-store',
           'Pragma': 'no-cache',
           'Expires': '0',}
@@ -30,9 +29,9 @@ const [Token, setToken] = useState()
 
         setdata(response.data.UserData);
       } catch (error) {
-
-        // console.error('Error fetching data:', error);
-         router.push('/');
+      setdata({})
+      localStorage.removeItem("Token");
+        router.push('/');
       } finally {
         setLoading(false);
       }
@@ -54,11 +53,20 @@ const [Token, setToken] = useState()
 
   return (
     <div className='profileMain'>
-
-        {data.branch?<ProfileNav />: router.push('/')}
+{1?<div>
+        {data.branch?<ProfileNav name={data.firstName}/>: router.push('/')}
 
         {data.branch?<ProfileBody token={Token} />:null}
+</div>:<>
+<div>
+       
+       {data.branch?<ResposiveNav/>: router.push('/')}
+       
+        {/* {data.branch?<ProfileNav name={data.firstName}/>: router.push('/')} */}
 
+        {/* {data.branch?<ProfileBody token={Token} />:null} */}
+</div>
+</>}
     </div>
   )
 }
