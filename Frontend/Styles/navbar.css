@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar
+{
+    z-index: 1;
+    width: 78vw;
+    height: 5vw;
+    background: linear-gradient(to right, #5337AC, #826cc7);
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: aliceblue;
+    padding: 0.5vw 1vw;
+    /* border-radius: 0 0 1vw 0; */
+    opacity: 0;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerNav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 76vw;
+    height: 4.5vw;
+}
+
+.profile
+{
+    position: fixed ;
+    top: 1vw;
+    transition: all 0.2s ease-out;
+}
+
+.profileName
+{
+    width: fit-content;
+    padding: 0 0.5vw;
+    height: 2.7vw;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #5337AC;
+    transition: all .1s ease-out;
+}
+
+.profileName:hover
+{
+    background-color: #ffffff31;
+}
+
+.dropdown
+{
+    width: 9vw;
+    border-radius: 0 0 0.8vw 0.8vw;
+    font-size: 1.1vw;
+    height: 8vw;
+    background-color: #5337AC;
+    color: #2a2a2a;
+    border-bottom: 0.1vw solid #2a2a2a;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2vw;
+}
+
+.downArrow
+{
+    transition: all 0.2s ease-out;
+}
+
+.menuButton
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 85%;
+    height: 40%;
+    background-color: #2a2a2a;
+    color: #fff;
+    margin: 0.3vw 0 ;
+    border-radius: 0.5vw;
+    transition: all 0.2s ease-out;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
+
+}
+
+.menuButton:hover
+{
+    background-color: #2a2a2a72;
+}
+
+.menuButton:active
+{
+    background-color: #fff;
+    color: #2a2a2a;
+}

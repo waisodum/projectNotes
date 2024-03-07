@@ -1,0 +1,114 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.leftMenu
+{
+    /* width: 300px; */
+    width: 22vw;
+    z-index: 0;  
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    background-color: #5337AC;
+    /* border-radius: 0 0 1vw 0; */
+    padding: 1vw;
+    color: aliceblue;
+    opacity: 0;
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
+}
+
+.logo
+{
+    font-size: 2.5vw;
+    font-weight: 600;
+    color: #f0f8ff;
+    padding: 1vw;
+    line-height: 2.3vw;
+    font-family: "Kalnia";
+    opacity: 0;
+    margin: 0 0 1.8vw 0;
+}
+
+.cNone
+{
+    cursor: url(../public/icons8-circle-40-20x20.jpg), auto;
+}
+
+.restMenu
+{
+    width: 100%;
+    height: 50vh;
+}
+
+.headText
+{
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid #2a2a2a;
+    font-size: 1.2vw;
+    font-weight: 600;
+    padding: 0 0 0.5vw 0;
+    margin: 0 0 0.5vw 0;
+}
+
+.sem
+{
+    width: 102.5%;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    margin: 0.5vw;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid aliceblue;
+}
+
+.semToggle
+{
+    margin: 0.3vw;
+    font-weight: 700;
+    width: 3vw;
+    height: 2.5vw;
+    padding: 0.35vw 0;
+    text-align: center;
+    border-radius: 0.5vw;
+    transition: all 0.2s ease-out;
+}
+
+.semToggle:hover
+{
+    background-color: #ffffff26;
+}
+
+.subjectSelection
+{
+    cursor: none;
+    height: 80vh;
+}
+
+.subjectNames
+{
+    margin: 0.1vw;
+    font-size: 1vw;
+    text-align: left;
+    width: 105%;
+    height: fit-content;
+    padding: 13px;
+    transition: all 0.2s ease-out;
+    border-radius: 0.8vw 0 0 0.8vw;
+    cursor: none;
+}
+
+.subjectNames:hover
+{
+    background-color: #ffffff26;
+    border-radius: 1.8vw 0 0 1.8vw;
+    scale: 0.992;
+}
+
+.subjectNames:active
+{
+    scale: 0.99;
+}
+
+

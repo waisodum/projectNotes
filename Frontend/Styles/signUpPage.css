@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signUpBody
+{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.2s ease-out;
+    background-color: #dfd4ffe5;
+    color: #000;
+    overflow: hidden;
+}
+
+.image
+{
+    border-radius: 35px;
+    background: url("/vectorr.jpg") no-repeat;
+    background-size: cover;
+    width: 38vw;
+    height: 35vw;
+    z-index: 2;
+}
+
+.verticalText
+{
+    font-size: 6.5vw;
+    height: 6.5vw;
+    width: 50rem;
+    /* text-align: center; */
+    opacity: 0;
+    position: fixed;
+    top: -2%;
+    left: 20.7%;
+    color: #2a2a2a;
+    font-weight: 800;
+    z-index: 1;
+    letter-spacing: 0.1vw;
+    transition: all 0.2s ease-out;
+}
+
+.signUpForm
+{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    font-size: 1.1vw;
+    /* background-color: #000; */
+}
+
+.mainForm
+{
+    background-color: #fff;
+    color: #000;
+    border-radius: 0.5vw 2.5vw 2.5vw 2.5vw;
+    height: 32rem;
+    width: 95%;
+    padding: 2vw;
+    transition: all 0.2s ease-out;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.mainForm:hover
+{
+    border-radius: 0.7vw 4vw 4vw 4vw;
+    /* border: 2px solid black; */
+}
+
+.inputRow2
+{
+    width: 100%;
+    height: 2vw;
+    margin: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.1vw;
+}
+
+.field1
+{
+    width: 49%;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw 0;
+}
+
+.fieldName
+{
+    margin: 0.2w;
+    color: #000;
+}
+
+.fieldValue
+{
+    margin: 0.2vw 0.5vw;
+    border-radius: 0rem;
+    width: 13vw;
+    border-width: 0 0 2px 0;
+    border-color: #2a2a2a;
+    padding: 0 0.5vw;
+    font-size: 1.1vw;
+    transition: all 0.2s ease-out;
+}
+
+.fieldValue:focus
+{
+    border-radius: 0.4rem;
+}
+
+.createButton
+{
+    background-color: #2a2a2a;
+    font-size: 1.1vw;
+    border-radius: 0.8vw;
+    height: 3vw;
+    width: 10vw;
+    padding: 0.2vw 0.5vw;
+    color: #fff;
+    transition: all 0.2s ease-out;
+}
+
+.createButton:hover
+{
+    background-color: #fff;
+    border: 2px solid #2a2a2a;
+    border-radius: 1.3vw;
+    color: #2a2a2a;
+    font-size: 1.15vw;
+}
+
+.createButton:active
+{
+    background-color: #826cc7;
+    color: #fff;
+    border: none;
+}

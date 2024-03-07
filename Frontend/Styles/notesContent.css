@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.notesContent
+{
+  position: fixed;
+  right: 0;
+  top: 4.99vw;
+  scrollbar-width: 0;
+  scroll-behavior: smooth;
+  scrollbar-color: transparent;
+  width: 79vw;
+  height: 100vh;
+  padding: 1vw 2vw;
+  background-color: aliceblue;
+  border-radius: 1.1vw 0 0 0;
+  z-index: 0;
+  transition: all .2s ease-out;
+  overflow: scroll;
+  scrollbar-width: 0.2vw;
+}
+
+.notesContent:hover
+{
+  border-radius: 0.6vw;
+}
+
+.files-container 
+{
+  height: fit-content;
+  width: 99.6%;
+  border-radius: 1vw;
+  padding: 1vw 0.1vw;
+  background-color: #2a2a2a1d;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  transition: all .2s ease-out;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+.files-container:hover 
+{
+  border-radius: 0.5vw;
+}
+
+.fileView
+{
+  width: 100%;
+  height: 4vw;
+  padding: .1vw 2vw;
+  transition: all .2s ease-out;
+  cursor: none;
+  transition: all 0.2s ease-out;
+}
+
+.fileView:hover
+{
+  scale: 1.01;
+  background-color: #836cc763;
+  /* color: aliceblue; */
+  width: 98%;
+  border-radius: 0.5vw;
+}
+
+.fileView:active
+{
+  background-color: #5337AC;
+  color: aliceblue;
+}
+  
+.file-entry 
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vw 1vw;
+  border-radius: 1.5vw;
+  height: fit-content;
+  font-size: 1.1vw;
+  font-weight: 500;
+  width: 100%;
+  cursor: none;
+  transition: all .2s ease-out;
+}
+/* 
+.file-entry:hover
+{
+  border-radius: 1vw;
+} */
+
+.horizontalBar 
+{
+  width: 100%;
+  height: 2px; 
+  background-color: #333; 
+  margin: 10px 0; 
+}

@@ -20,15 +20,15 @@
 {
     height: 40vw;
     width: 90%;
-    border-radius: 3vw;
+    border-radius: 4.5vw ;
     margin: 3vw;
-    background-color: rgb(137, 118, 198);
+    background-color: #826cc7;
     transition: all 0.2s ease-out;
 }
 
 .innerLogin:hover
 {
-    border-radius: 2vw;
+    border-radius: 3vw;
 }
 
 .lHeading
@@ -89,6 +89,20 @@
 {
     font-size: 1.4vw;
     margin: 0.2vw;
+    color: #fff;
+}
+
+.forgotPass
+{
+    margin: -0.5vw 0 0 0;
+    color: #fff;
+    font-size: 1.18vw;
+    transition: all 0.2s ease-out;
+}
+
+.forgotPass:hover
+{
+    color: #000;
 }
 
 .inputBox
